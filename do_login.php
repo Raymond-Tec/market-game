@@ -15,10 +15,8 @@ catch(PDOException $e) {
 if ($result){ // If the username exists, check the password
     if (password_verify($_POST['password'], $result['password'])) { 
         //Start a session
-        $un = $_POST['username'];
-        $id = $result['userid'];
-        $_SESSION['username'] = $_GET['username'];
-        $_SESSION['userid'] = $_GET['id'];
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['userid'] = $result['userid'];
         header('Location: index.php');
         exit();
     } else {
