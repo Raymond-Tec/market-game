@@ -19,10 +19,10 @@
         <?php include 'header.php';?>
 
         <?php 
-            if ($_GET["loc"] == null) {
-                include 'welcome.php';
+            if ($_GET["loc"]) {
+                include htmlspecialchars($_GET["loc"]).'.php';    
             } else {
-            include htmlspecialchars($_GET["loc"]).'.php';
+                include 'welcome.php';
             }
         ?>
         
