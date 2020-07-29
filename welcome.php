@@ -7,5 +7,4 @@ if ($_SESSION['username'] == null) {
 } else {
     echo "Welcome, ".$_SESSION['username'];
 }
-echo $_SESSION['username'];
 ?>
