@@ -7,5 +7,5 @@ session_destroy();
 You have been logged out.<br><br>
 You will be redirected to the Welcome page shortly.
 <?php
-header('Refresh: 2; Location: index.php');
+header('Refresh: 2; url=index.php');
 ?>
