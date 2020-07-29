@@ -20,7 +20,7 @@
         require 'accessdb.php';
 
         try {
-        $stmt = $conn->prepare("SELECT id, username, password, email FROM user WHERE username=".$_POST['username']);
+        $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username=".$_POST['username']);
         $stmt->execute();
         $result = $sth->fetch(PDO::FETCH_OBJ);
         }
