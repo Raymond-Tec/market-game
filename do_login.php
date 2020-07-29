@@ -15,6 +15,7 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <h1>You're Here.</h1>
         <?php
         require 'accessdb.php';
 
@@ -35,7 +36,8 @@
 
         $hashedpw = password_hash('0o8xQ5!GgK350^N1!lU5jVWB*EHnBJS1', PASSWORD_BCRYPT, $options);*/
 
-        ?>        
+        ?>
+        <h1>Now you're here.</h1>
         <script src="" async defer></script>
     </body>
 </html>
