@@ -22,7 +22,8 @@
         try {
         $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username = ?");
         $stmt->execute([$_POST['username']]);
-        //$result = $sth->fetch(PDO::FETCH_OBJ);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo $result[2];
         }
         catch(PDOException $e) {
             echo "Error: ".$e->getMessage();
