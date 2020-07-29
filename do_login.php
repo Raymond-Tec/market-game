@@ -29,7 +29,7 @@
             echo "Error: ".$e->getMessage();
         }
 
-        if ($result=null){
+        if ($result){
             echo $result['username']."<br><br>";
         } else {
             echo "Username or password is incorrect.<br><br>";
