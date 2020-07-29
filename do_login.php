@@ -18,12 +18,10 @@
         <h1>You're Here.</h1>
         <?php
         require 'accessdb.php';
-        $logun = $_POST['username'];
-        $logpw = $_POST['password'];
 
         try {
-        $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username='$logun'");
-        $stmt->execute();
+        $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username = ?");
+        $stmt->execute([$_POST['username']]);
         $result = $sth->fetch(PDO::FETCH_OBJ);
         }
         catch(PDOException $e) {
