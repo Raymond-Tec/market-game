@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'accessdb.php'; //open the connection to the database
 
 try {
@@ -16,16 +17,24 @@ if ($result){ // If the username exists, check the password
         //Start a session
         $un = $_POST['username'];
         $id = $result['userid'];
-        header('Location: startsession.php?username='.$un.'&id='.$id);
+        $_SESSION['username'] = $_GET['username'];
+        $_SESSION['userid'] = $_GET['id'];
+        header('Location: index.php');
         exit();
     } else {
-        echo "Username or password is incorrect.<br><br>"; //If the password is incorrect.
-        header('Refresh: 2; Location: index.php?loc=loginform&msg=badlogin');
+        //Remove all session variables
+        session_unset();
+        //Destroy the session
+        session_destroy();
+        header('Location: index.php?loc=loginform&msg=badlogin');
         exit();
     }
 } else {
-    echo "Username or password is incorrect.<br><br>"; //If the username doesn't exist.
-    header('Refresh: 2; Location: index.php?loc=loginform&msg=badlogin');
+    //Remove all session variables
+    session_unset();
+    //Destroy the session
+    session_destroy();
+    header('Location: index.php?loc=loginform&msg=badlogin');
     exit();
 }
 
