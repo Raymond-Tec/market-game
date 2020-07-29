@@ -34,7 +34,7 @@
                 session_start();
                 $_SESSION["username"] = $_POST['username'];
                 echo "Logged in. Redirect in 2 seconds.";
-                header('Refresh: 2; Location: index.php');
+                header('Refresh: 2; url=index.php');
                 exit();
             } else {
                 echo "Username or password is incorrect.<br><br>"; //If the password is incorrect.
