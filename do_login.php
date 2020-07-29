@@ -33,11 +33,14 @@
                 //Start a session
                 session_start();
                 $_SESSION["username"] = $_POST['username'];
+                header('Location: index.php');
             } else {
                 echo "Username or password is incorrect.<br><br>"; //If the password is incorrect.
+                header('Location: index.php?loc=loginform');
             }
         } else {
             echo "Username or password is incorrect.<br><br>"; //If the username doesn't exist.
+            header('Location: index.php?loc=loginform');
         }
 
         $conn=null; //Close connection to database
