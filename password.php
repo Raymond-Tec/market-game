@@ -13,7 +13,7 @@ $cost = 8;
 do {
     $cost++;
     $start = microtime(true);
-    password_hash("test", PASSWORD_BCRYPT, ["cost" => $cost]);
+    password_hash("Ng7eBMFFJJO6b!JIp4WBAg@fpBN3LXU$", PASSWORD_BCRYPT, ["cost" => $cost]);
     $end = microtime(true);
 } while (($end - $start) < $timeTarget);
 
