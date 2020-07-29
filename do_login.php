@@ -23,12 +23,18 @@
         $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username = ?");
         $stmt->execute([$_POST['username']]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        echo $result['username'];
         }
+
         catch(PDOException $e) {
             echo "Error: ".$e->getMessage();
         }
+
+        if ($result['username'] = null){
+            echo "Username or password is incorrect.<br><br>";
+        } else {
+            echo $result['username']."<br><br>";
+        }
+
         $conn=null;
         echo "Connection Closed. <br><br>"
         //print $result->name;
