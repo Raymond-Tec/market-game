@@ -22,13 +22,14 @@
         try {
         $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username = ?");
         $stmt->execute([$_POST['username']]);
-        $result = $sth->fetch(PDO::FETCH_OBJ);
+        //$result = $sth->fetch(PDO::FETCH_OBJ);
         }
         catch(PDOException $e) {
             echo "Error: ".$e->getMessage();
         }
         $conn=null;
-        print $result->name;
+        echo "Connection Closed. <br><br>"
+        //print $result->name;
 
         /*$options = [
             'cost' => 13,
