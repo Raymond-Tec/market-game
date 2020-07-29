@@ -19,7 +19,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <?php include 'accessdb.php';?>
+        <?php include htmlspecialchars($_GET["loc"]).'.php';?>
         
         <script src="" async defer></script>
     </body>
