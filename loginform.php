@@ -1,6 +1,6 @@
 <?php
 if ($_GET['msg']){
-    echo "<h3>Bad Username or Password. Please Try Again";
+    echo "<h3>Bad Username or Password. Please Try Again.</h3>";
 }
 ?>
 <form action="do_login.php" id="loginform" method="post" autocomplete="on">
