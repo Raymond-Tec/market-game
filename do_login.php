@@ -16,18 +16,16 @@ if ($result){ // If the username exists, check the password
         //Start a session
         session_start();
         $_SESSION["username"] = $_POST['username'];
-        echo $_SESSION["username"]." is now logged in.";
-        echo "Redirect in 2 seconds.";
-        header('Refresh: 2; url=index.php');
+        header('Location: index.php');
         exit();
     } else {
         echo "Username or password is incorrect.<br><br>"; //If the password is incorrect.
-        header('Location: index.php?loc=loginform');
+        header('Refresh: 2; Location: index.php?loc=loginform');
         exit();
     }
 } else {
     echo "Username or password is incorrect.<br><br>"; //If the username doesn't exist.
-    header('Location: index.php?loc=loginform');
+    header('Refresh: 2; Location: index.php?loc=loginform');
     exit();
 }
 
