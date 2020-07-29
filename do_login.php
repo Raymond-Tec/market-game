@@ -6,39 +6,40 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>The Market Game - Logging In</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>You're Here.</h1>
+        <h2>Logging you in.</h2>
         <?php
-        require 'accessdb.php';
+        require 'accessdb.php'; //open the connection to the database
 
         try {
-        $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username = ?");
+        $stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username = ?"); //Query the user table
         $stmt->execute([$_POST['username']]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC); //Fetch the single result
         }
 
         catch(PDOException $e) {
-            echo "Error: ".$e->getMessage();
+            echo "Error: ".$e->getMessage(); //Error handling and display
         }
 
-        if ($result){
-            if (password_verify($_POST['password'], $result['password'])) {
-                echo "Password is valid!";
+        if ($result){ // If the username exists, check the password
+            if (password_verify($_POST['password'], $result['password'])) { 
+                
+            } else {
+                echo "Username or password is incorrect.<br><br>"; //If the password is incorrect.
             }
         } else {
-            echo "Username or password is incorrect.<br><br>";
+            echo "Username or password is incorrect.<br><br>"; //If the username doesn't exist.
         }
 
-        $conn=null;
-        echo "Connection Closed. <br><br>"
+        $conn=null; //Close connection to database
+
         //print $result->name;
 
         /*$options = [
@@ -46,9 +47,7 @@
         ];
 
         $hashedpw = password_hash('0o8xQ5!GgK350^N1!lU5jVWB*EHnBJS1', PASSWORD_BCRYPT, $options);*/
-
         ?>
-        <h1>Now you're here.</h1>
         <script src="" async defer></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" async></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" async></script>
