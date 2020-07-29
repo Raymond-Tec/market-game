@@ -30,7 +30,9 @@
         }
 
         if ($result){
-            echo $result['username']."<br><br>";
+            if (password_verify($_POST['password'], $result['password'])) {
+                echo "Password is valid!";
+            }
         } else {
             echo "Username or password is incorrect.<br><br>";
         }
