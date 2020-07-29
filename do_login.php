@@ -17,6 +17,7 @@ if ($result){ // If the username exists, check the password
         //Start a session
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['userid'] = $result['userid'];
+        $_SESSION['last_activity'] = time();
         header('Location: index.php');
         exit();
     } else {

@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<60)) {
+    $_SESSION['last_activity'] = time(); //If user is logged in and it has been less than xx seconds, update the last activity time and continue.
+} elseif (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']>60)) {
+    session_unset();
+    session_destroy();
+}
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
