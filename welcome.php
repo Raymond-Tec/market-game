@@ -2,4 +2,10 @@
 <h4>v.<?php echo $ver; ?></h4>
 
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        echo "Please login to play.";
+    } else {
+        echo "Welcome, ".$_SESSION['username'];
+    }
+    ?>
 ?>

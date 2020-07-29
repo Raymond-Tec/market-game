@@ -30,7 +30,9 @@
 
         if ($result){ // If the username exists, check the password
             if (password_verify($_POST['password'], $result['password'])) { 
-                
+                //Start a session
+                session_start();
+                $_SESSION["username"] = $_POST['username'];
             } else {
                 echo "Username or password is incorrect.<br><br>"; //If the password is incorrect.
             }
