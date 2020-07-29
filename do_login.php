@@ -24,7 +24,7 @@
         $stmt->execute([$_POST['username']]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        print $result;
+        echo $result['username'];
         }
         catch(PDOException $e) {
             echo "Error: ".$e->getMessage();
