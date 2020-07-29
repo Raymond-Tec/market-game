@@ -29,10 +29,10 @@
             echo "Error: ".$e->getMessage();
         }
 
-        if ($result['username'] = null){
-            echo "Username or password is incorrect.<br><br>";
-        } else {
+        if ($result){
             echo $result['username']."<br><br>";
+        } else {
+            echo "Username or password is incorrect.<br><br>";
         }
 
         $conn=null;
