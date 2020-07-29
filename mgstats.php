@@ -1,3 +1,4 @@
 <?php
-    $ver = "0.0.1";
+    $gameName = "The Market Game";
+    $ver = "0.0.1";    
 ?>

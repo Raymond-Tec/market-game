@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
-if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<60)) {
+if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
     $_SESSION['last_activity'] = time(); //If user is logged in and it has been less than xx seconds, update the last activity time and continue.
-} elseif (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']>60)) {
+} elseif (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']>1800)) {
     session_unset();
     session_destroy();
 }
@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<60)) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>The Market Game</title>
+        <title><?php echo $gameName;?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php require_once 'mgstats.php';?>
