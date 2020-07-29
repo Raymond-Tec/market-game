@@ -19,3 +19,9 @@ do {
 
 echo "Appropriate Cost Found: " . $cost;
 ?>
+
+
+<?php
+print_r(hash_algos());
+?>
+
