@@ -14,18 +14,18 @@ catch(PDOException $e) {
 if ($result){ // If the username exists, check the password
     if (password_verify($_POST['password'], $result['password'])) { 
         //Start a session
-        session_start();
-        $_SESSION["username"] = $_POST['username'];
-        header('Location: index.php');
+        $un = $_POST['username'];
+        $id = $result['userid'];
+        header('Location: startsession.php?username='.$un.'&id='.$id);
         exit();
     } else {
         echo "Username or password is incorrect.<br><br>"; //If the password is incorrect.
-        header('Refresh: 2; Location: index.php?loc=loginform');
+        header('Refresh: 2; Location: index.php?loc=loginform&msg=badlogin');
         exit();
     }
 } else {
     echo "Username or password is incorrect.<br><br>"; //If the username doesn't exist.
-    header('Refresh: 2; Location: index.php?loc=loginform');
+    header('Refresh: 2; Location: index.php?loc=loginform&msg=badlogin');
     exit();
 }
 
