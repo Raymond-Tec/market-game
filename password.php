@@ -1,27 +1,17 @@
 
 <?php
-/**
- * This code will benchmark your server to determine how high of a cost you can
- * afford. You want to set the highest cost that you can without slowing down
- * you server too much. 8-10 is a good baseline, and more is good if your servers
- * are fast enough. The code below aims for ≤ 50 milliseconds stretching time,
- * which is a good baseline for systems handling interactive logins.
- */
-$timeTarget = 1; 
 
-$cost = 8;
-do {
-    $cost++;
-    $start = microtime(true);
-    password_hash("Ng7eBMFFJJO6b!JIp4WBAg@fpBN3LXU$", PASSWORD_BCRYPT, ["cost" => $cost]);
-    $end = microtime(true);
-} while (($end - $start) < $timeTarget);
+$pw = test;
 
-echo "Appropriate Cost Found: " . $cost;
-?>
+$options = [
+    'cost' => 12,
+];
 
+$sha3pw = hash('sha3-512','test');
+$defaultpw = password_hash($pw, PASSWORD_BCRYPT, $options);
+$combinedpw = password_hash($sha3pw, PASSWORD_BCRYPT, $options);
 
-<?php
-print_r(hash_algos());
-?>
-
+echo $pw.'<br>';
+echo 'SHA3-512 hashed password: ' . $sha3pw .'<br>';
+echo 'Built-in hashed password: ' . $defaultpw .'<br>';
+echo 'Combined password: ' . $combinedpw;
