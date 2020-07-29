@@ -9,6 +9,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php require_once 'mgstats.php';?>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -18,7 +19,7 @@
 
         <?php 
             if ($_GET["loc"] == null) {
-                include 'accessdb.php';
+                include 'welcome.php';
             } else {
             include htmlspecialchars($_GET["loc"]).'.php';
             }
