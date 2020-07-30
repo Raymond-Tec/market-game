@@ -21,7 +21,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
         <?php require_once 'mgstats.php';?>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <!--[if lt IE 7]>
                 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
