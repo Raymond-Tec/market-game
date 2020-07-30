@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <input type="submit" value="Login">
+            <input class="btn" type="submit" value="Login">
             </form>
         </div>
         <div class="col-10"></div>
