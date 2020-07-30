@@ -1,6 +1,5 @@
 <h2>News</h2>
 <?php
-require 'functions.php'; //reusable functions
 $conn = accessdb();
 
 if (!isset($_GET['newsid'])) {

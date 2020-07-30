@@ -1,5 +1,7 @@
 <?php 
 session_start(); 
+require 'functions.php';
+require 'mgstats.php';
 if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
     $_SESSION['last_activity'] = time(); //If user is logged in and it has been less than xx seconds, update the last activity time and continue.
 } elseif (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']>1800)) {
@@ -18,7 +20,6 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
         <title><?php echo $gameName;?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?php require_once 'mgstats.php';?>
     </head>
     <body>
         <div class="container">
