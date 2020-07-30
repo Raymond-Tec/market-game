@@ -22,7 +22,7 @@ if ($result){ // If the username exists, check the password
         $_SESSION['last_activity'] = time();
         echo "Session created.<br><br>";
         //Update the User table with the current date and time to reflect last login.
-        try {
+        /*try {
             echo "Trying to build the statement.<br><br>";
             $lastLogin = $conn->prepare('UPDATE user SET userlastlogin=? WHERE username=?');
             echo "Statement Prepared.<br><br>";
@@ -30,7 +30,7 @@ if ($result){ // If the username exists, check the password
             echo "Record updated successfully.<br><br>";
         } catch(PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
-        }
+        }*/
         //Close the database connection
         $conn=null;
         header('Location: index.php');
