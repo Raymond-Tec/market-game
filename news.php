@@ -17,5 +17,5 @@ if (isset($_SESSION["username"])) {
     $stmt = $conn->prepare("SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsstatus = 'Published' AND newspubpriv = 'Public'"); //Query the news table
 }
 
-
 $conn=null; //close DB connection
+?>
