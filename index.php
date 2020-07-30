@@ -30,7 +30,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
             if ($_GET["loc"]) {
                 include htmlspecialchars($_GET["loc"]).'.php';    
             } else {
-                include 'welcome.php';
+                include 'news.php';
             }
         ?>
         

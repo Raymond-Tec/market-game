@@ -3,7 +3,7 @@ session_start();
 require 'accessdb.php'; //open the connection to the database
 
 try {
-$stmt = $conn->prepare("SELECT userid, username, password, email FROM user WHERE username = ?"); //Query the user table
+$stmt = $conn->prepare("SELECT userid, username, password, email, nickname FROM user WHERE username = ?"); //Query the user table
 $stmt->execute([$_POST['username']]);
 $result = $stmt->fetch(PDO::FETCH_ASSOC); //Fetch the single result
 }
@@ -17,6 +17,8 @@ if ($result){ // If the username exists, check the password
         //Start a session
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['userid'] = $result['userid'];
+        $_SESSION['email'] = $result['email'];
+        $_SESSION['nickname'] = $result['nickname'];
         $_SESSION['last_activity'] = time();
         header('Location: index.php');
         exit();
