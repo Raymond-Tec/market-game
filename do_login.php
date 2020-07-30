@@ -14,39 +14,37 @@ catch(PDOException $e) {
 
 if ($result){ // If the username exists, check the password
     if (password_verify($_POST['password'], $result['password'])) { 
-        //Start a session
+        //Create session variables.
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['userid'] = $result['userid'];
         $_SESSION['email'] = $result['email'];
         $_SESSION['nickname'] = $result['nickname'];
         $_SESSION['last_activity'] = time();
         
+        //Update the User table with the current date and time to reflect last login.
+        $lastLogin = $conn->prepare('UPDATE user SET userlastlogin=?');
+        $lastLogin->execute([date('Y-m-d H:i:s')]);
+
+        //Close the database connection
+        $conn=null;
         header('Location: index.php');
         exit();
     } else {
-        //Remove all session variables
+        //Remove all session variables, destroy the session, close the database connection
         session_unset();
-        //Destroy the session
         session_destroy();
+        $conn=null;
         header('Location: index.php?loc=loginform&msg=badlogin');
         exit();
     }
 } else {
-    //Remove all session variables
+    //Remove all session variables and destroy the session
     session_unset();
-    //Destroy the session
     session_destroy();
+    $conn=null;
     header('Location: index.php?loc=loginform&msg=badlogin');
     exit();
 }
 
-$conn=null; //Close connection to database
-
-//print $result->name;
-
-/*$options = [
-    'cost' => 13,
-];
-
-$hashedpw = password_hash('0o8xQ5!GgK350^N1!lU5jVWB*EHnBJS1', PASSWORD_BCRYPT, $options);*/
+$conn=null; //Close connection to database, the script shouldn't get here but just in case.
 ?>
