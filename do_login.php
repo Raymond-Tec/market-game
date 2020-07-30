@@ -18,14 +18,6 @@ if ($result){
         $_SESSION['email'] = $result['email'];
         $_SESSION['nickname'] = $result['nickname'];
         $_SESSION['last_activity'] = time();
-        //Update the User table with the current date and time to reflect last login.
-        try {
-            $lastLogin = $conn->prepare('UPDATE user SET userlastlogin=? WHERE username=?');
-            $lastLogin->execute([date('Y-m-d H:i:s'),$_POST['username']]);
-        } catch(PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
-        }
-        //Close the database connection
         header('Location: index.php');
         exit();
     } else {
