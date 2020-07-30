@@ -10,7 +10,7 @@ try {
     echo "Error: ".$e->getMessage(); //Error handling and display
 }
 
-if ($result){ // If the username exists, check the password
+if ($result){
     if (password_verify($_POST['password'], $result['password'])) { 
         //Create session variables.
         $_SESSION['username'] = $_POST['username'];
