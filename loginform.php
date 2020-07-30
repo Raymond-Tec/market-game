@@ -1,8 +1,3 @@
-<?php
-if ($_GET['msg']=='badlogin'){
-    echo "<div class=\"bg-warning text-center\">Bad Username or Password. Please Try Again.</div>";
-}
-?>
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -25,6 +20,7 @@ if ($_GET['msg']=='badlogin'){
             <input type="submit" value="Login">
             </form>
         </div>
+        <div class="col-10"></div>
     </div>
 </div>
 

@@ -2,6 +2,7 @@
 <?php
 require 'accessdb.php'; //open DB connection
 
+//This is the logic for displaying all news
 if (isset($_SESSION["username"])) {
     //Query the news table for all published stories, public and private.
     $news = $conn->query('SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsstatus = \'Published\''); //Query the news table

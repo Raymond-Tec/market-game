@@ -13,4 +13,15 @@
             ?>
         </div>
     </div>
+    <?php
+    if ($_GET['msg']=='badlogin'){
+    echo "<div class=\"row\">";
+        echo "<div class=\"col-5\"></div>";
+        echo "<div class=\"col-2 well-sm bg-warning text-center\">";
+            echo "Bad Username or Password. Please Try Again.";
+        echo "</div>";
+        echo "<div class=\"col-5\"></div>";
+    echo "</div>";
+    }
+    ?>
 </div>
