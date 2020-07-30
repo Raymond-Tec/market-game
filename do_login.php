@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'accessdb.php'; //open the connection to the database
+$conn = accessdb(); //open the connection to the database
 
 try {
 $stmt = $conn->prepare("SELECT userid, username, password, email, nickname FROM user WHERE username = ?"); //Query the user table

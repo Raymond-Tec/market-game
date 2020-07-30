@@ -21,6 +21,8 @@
         <?php
             if ($_GET['msg']=="badlogin") {
                 echo "Bad Username or Password. Please Try Again.";
+            } elseif ($_GET['msg']=="logoutsuccess") {
+                echo "You have successfully logged out.";
             }
         ?>
         </div>
