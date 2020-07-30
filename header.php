@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid page-header">
     <div class="row">
         <div class="col-10">
             <h1><?php echo $gameName; ?></h1> 
