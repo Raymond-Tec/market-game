@@ -1,17 +1,12 @@
 <?php
 session_start();
 $conn = accessdb(); //open the connection to the database
-echo "Database Connected.<br>";
-try {
-$stmt = $conn->prepare("SELECT userid, username, password, email, nickname FROM user WHERE username = ?"); //Query the user table
-echo "Initial statement prepared.<br>";
-$stmt->execute([$_POST['username']]);
-echo "Statement executed.<br>";
-$result = $stmt->fetch(PDO::FETCH_ASSOC); //Fetch the single result
-echo "Statement loaded into an array.";
-}
 
-catch(PDOException $e) {
+try {
+    $stmt = $conn->prepare("SELECT userid, username, password, email, nickname FROM user WHERE username = ?"); //Query the user table
+    $stmt->execute([$_POST['username']]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC); //Fetch the single result
+} catch(PDOException $e) {
     echo "Error: ".$e->getMessage(); //Error handling and display
 }
 
