@@ -20,7 +20,7 @@ if ($result){ // If the username exists, check the password
         $_SESSION['email'] = $result['email'];
         $_SESSION['nickname'] = $result['nickname'];
         $_SESSION['last_activity'] = time();
-        
+        echo "Session created.<br><br>";
         //Update the User table with the current date and time to reflect last login.
         try {
             echo "Trying to build the statement.<br><br>";
