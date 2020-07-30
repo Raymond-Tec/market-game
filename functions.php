@@ -19,7 +19,7 @@ else
 */
 {
 array_splice($array, $wordsreturned);
-$retval = implode(" ", $array)."<a href=\"index.php?loc=news&newsid=".$newsid."\" title=\"".$newstitle."\">...More</a>";
+$retval = implode(" ", $array)." ... <a href=\"index.php?loc=news&newsid=".$newsid."\" title=\"".$newstitle."\">More</a>";
 }
 return $retval;
 }
