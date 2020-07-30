@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
+        <div class="col-10">
             <h1><?php echo $gameName; ?></h1> 
         </div>
         <div class="col">

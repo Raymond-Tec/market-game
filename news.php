@@ -1,4 +1,4 @@
-<h1>News</h1>
+<h2>News</h2>
 <?php
 require 'accessdb.php'; //open DB connection
 
@@ -10,8 +10,8 @@ if (isset($_SESSION["username"])) {
         $author = $conn->prepare('SELECT userid, nickname FROM user WHERE userid = ?'); //Prepare SQL statement to find the Author's nickname from the userid on the post
         $author->execute([$row['newsauthor']]); //Execute the SQL statement
         $auth_result = $author->fetch(PDO::FETCH_ASSOC); //Put the statement into an associative array
-        echo "<h2>".$row['newstitle']."</h2>";
-        echo "<h4>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']." | Status: ".$row['newspubpriv'];
+        echo "<h3>".$row['newstitle']."</h3>";
+        echo "<h5>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']." | Status: ".$row['newspubpriv']."</h5>";
         echo "<p>".$row['newstext']."</p>";
     }
 } else {
@@ -22,8 +22,8 @@ if (isset($_SESSION["username"])) {
         $author = $conn->prepare('SELECT userid, nickname FROM user WHERE userid = ?'); //Prepare SQL statement to find the Author's nickname from the userid on the post
         $author->execute([$row['newsauthor']]); //Execute the SQL statement
         $auth_result = $author->fetch(PDO::FETCH_ASSOC); //Put the statement into an associative array
-        echo "<h2>".$row['newstitle']."</h2>";
-        echo "<h4>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname'];
+        echo "<h3>".$row['newstitle']."</h3>";
+        echo "<h5>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']."</h5>";
         echo "<p>".$row['newstext']."</p>";
     }
 }
