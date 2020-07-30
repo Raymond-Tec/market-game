@@ -16,9 +16,9 @@ if (!isset($_GET['newsid'])) {
     while ($newsResult = $news->fetch()) 
     {
         $author = ret_nick($newsResult['newsauthor']);
-        $newsreturned = shorten_newsString($row['newstext'],'100',$row['newsid'],$row['newstitle']);
-        echo "<h4><a href=\"index.php?loc=news&newsid=".$row['newsid']."\" title=\"".$row['newstitle']."\">".$row['newstitle']."</a><br><small>";
-        echo "Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']."</small></h4>";
+        $newsreturned = shorten_newsString($newsResult['newstext'],'100',$newsResult['newsid'],$newsResult['newstitle']);
+        echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
+        echo "Published On: ".$newsResult['newsdate']." | Written by: ".$auth_result['nickname']."</small></h4>";
         echo "<p>".$newsreturned."</p>";
     }
 } else {
