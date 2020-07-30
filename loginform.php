@@ -1,6 +1,6 @@
 <?php
 if ($_GET['msg']=='badlogin'){
-    echo "<div class=\"bg-warning\">Bad Username or Password. Please Try Again.</div>";
+    echo "<div class=\"bg-warning text-center\">Bad Username or Password. Please Try Again.</div>";
 }
 ?>
 <div class="container-fluid">
