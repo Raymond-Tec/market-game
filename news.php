@@ -1,4 +1,4 @@
-<h1>Market Game News</h1>
+<h1>News</h1>
 <?php
 require 'accessdb.php'; //open DB connection
 
