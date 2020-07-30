@@ -7,9 +7,12 @@
             <a href="index.php?loc=news" alt="News">News</a> | 
             <?php
             if (isset($_SESSION['username'])) {
-                echo "<a href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a><br>";
+                if ($_SESSION['usergroup']==0) {
+                    echo "<a href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a> | ";
+                }
+                echo "<a href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a>";
             } else {
-                echo "<a href=\"index.php?loc=loginform\" alt=\"Login\">Login</a><br>";
+                echo "<a href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
             }
             ?>
         </div>
