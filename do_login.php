@@ -31,14 +31,12 @@ if ($result){ // If the username exists, check the password
             echo $sql . "<br>" . $e->getMessage();
         }*/
         //Close the database connection
-        $conn=null;
         header('Location: index.php');
         exit();
     } else {
         //Remove all session variables, destroy the session, close the database connection
         session_unset();
         session_destroy();
-        $conn=null;
         header('Location: index.php?loc=loginform&msg=badlogin');
         exit();
     }
@@ -46,7 +44,6 @@ if ($result){ // If the username exists, check the password
     //Remove all session variables and destroy the session
     session_unset();
     session_destroy();
-    $conn=null;
     header('Location: index.php?loc=loginform&msg=badlogin');
     exit();
 }
