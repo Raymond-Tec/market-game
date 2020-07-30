@@ -1,6 +1,6 @@
+<h1>Market Game News</h1>
 <?php
 require 'accessdb.php'; //open DB connection
-
 
 if (isset($_SESSION["username"])) {
     //Query the news table for all published stories, public and private.
