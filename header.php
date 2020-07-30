@@ -17,11 +17,12 @@
     if (isset($_GET['msg']) || isset($_POST['message'])){?>
     <div class="row">
         <div class="col-3"></div>
-        <div class="col-6 well-sm bg-warning text-center">;
+        <div class="col-6 well-sm bg-warning text-center">
         <?php
             if ($_GET['msg']=="badlogin") {
                 echo "Bad Username or Password. Please Try Again.";
-            }?>
+            }
+        ?>
         </div>
         <div class="col-3"></div>
     </div>
