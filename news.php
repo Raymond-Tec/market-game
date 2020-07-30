@@ -11,7 +11,7 @@ if (isset($_SESSION["username"])) {
         $author->execute([$row['newsauthor']]); //Execute the SQL statement
         $auth_result = $author->fetch(PDO::FETCH_ASSOC); //Put the statement into an associative array
         echo "<h3>".$row['newstitle']."</h3>";
-        echo "<h5>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']." | Status: ".$row['newspubpriv']."</h5>";
+        echo "<h6>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']." | Status: ".$row['newspubpriv']."</h6>";
         echo "<p>".$row['newstext']."</p>";
     }
 } else {
@@ -23,7 +23,7 @@ if (isset($_SESSION["username"])) {
         $author->execute([$row['newsauthor']]); //Execute the SQL statement
         $auth_result = $author->fetch(PDO::FETCH_ASSOC); //Put the statement into an associative array
         echo "<h3>".$row['newstitle']."</h3>";
-        echo "<h5>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']."</h5>";
+        echo "<h6>"."Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']."</h6>";
         echo "<p>".$row['newstext']."</p>";
     }
 }
