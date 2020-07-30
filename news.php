@@ -18,18 +18,16 @@ if (!isset($_GET['newsid'])) {
         $author = ret_nick($newsResult['newsauthor']);
         $newsreturned = shorten_newsString($newsResult['newstext'],'100',$newsResult['newsid'],$newsResult['newstitle']);
         echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
-        echo "Published On: ".$newsResult['newsdate']." | Written by: ".$auth_result['nickname']."</small></h4>";
+        echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
         echo "<p>".$newsreturned."</p>";
     }
 } else {
     $news = $conn->prepare('SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsid = ?');
     $news->execute([$_GET['newsid']]);
     $newsResult = $news->fetch(PDO::FETCH_ASSOC);
-    $author = $conn->prepare('SELECT userid, nickname FROM user WHERE userid = ?'); //Prepare SQL statement to find the Author's nickname from the userid on the post
-    $author->execute([$newsResult['newsauthor']]); //Execute the SQL statement
-    $auth_result = $author->fetch(PDO::FETCH_ASSOC); //Put the statement into an associative array
+    $author = ret_nick($newsResult['newsauthor']);
     echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
-    echo "Published On: ".$newsResult['newsdate']." | Written by: ".$auth_result['nickname']."</small></h4>";
+    echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
     echo "<p>".$newsResult['newstext']."</p>";
 }
 $conn=null; //close DB connection
