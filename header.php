@@ -1,6 +1,6 @@
 <div class="container-fluid page-header">
     <div class="row">
-        <div class="col-10">
+        <div class="col-9">
             <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
         </div>
         <div class="col">
