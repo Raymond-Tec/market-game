@@ -25,10 +25,16 @@ if (!isset($_GET['newsid'])) {
     $news = $conn->prepare('SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsid = ?');
     $news->execute([$_GET['newsid']]);
     $newsResult = $news->fetch(PDO::FETCH_ASSOC);
-    $author = ret_nick($newsResult['newsauthor']);
-    echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
-    echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
-    echo "<p>".$newsResult['newstext']."</p>";
+    if ($newsResult['newsstatus']=='Published') {
+        if ($newsResult['newspubpriv']=='Private' && isset($_SESSION['username']) || $newsResult['newspubpriv']=='Public' && !isset($_SESSION['username'])) {
+            $author = ret_nick($newsResult['newsauthor']);
+            echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
+            echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
+            echo "<p>".$newsResult['newstext']."</p>";
+        }
+    } else {
+        header('Location: index.php');
+    }
 }
 $conn=null; //close DB connection
 ?>

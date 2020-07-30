@@ -20,7 +20,7 @@
         <div class="col-6 well-sm alert-danger text-center">
         <?php
             if ($_GET['msg']=="badlogin") {
-                echo "Bad Username or Password. Please Try Again.";
+                echo "Incorrect Username or Password.";
             } elseif ($_GET['msg']=="logoutsuccess") {
                 echo "You have successfully logged out.";
             }
