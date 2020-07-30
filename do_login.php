@@ -20,6 +20,7 @@ if ($result){ // If the username exists, check the password
         $_SESSION['email'] = $result['email'];
         $_SESSION['nickname'] = $result['nickname'];
         $_SESSION['last_activity'] = time();
+        
         header('Location: index.php');
         exit();
     } else {
