@@ -5,7 +5,7 @@ require 'accessdb.php'; //open DB connection
 if (isset($_SESSION["username"])) {
     //Query the news table for all published stories, public and private.
     echo "Here 1.\n";
-    $news = $conn->query("SELECT newsid, newstitle, newdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsstatus = 'Published'");
+    $stmt = $conn->prepare("SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsstatus = 'Published'"); //Query the news table
     echo "Here 2.\n";
     while ($row = $news->fetch()) 
     {
