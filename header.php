@@ -14,14 +14,16 @@
         </div>
     </div>
     <?php
-    if ($_GET['msg']=='badlogin'){
-    echo "<div class=\"row\">";
-        echo "<div class=\"col-3\"></div>";
-        echo "<div class=\"col-6 well-sm bg-warning text-center\">";
-            echo "Bad Username or Password. Please Try Again.";
-        echo "</div>";
-        echo "<div class=\"col-3\"></div>";
-    echo "</div>";
-    }
-    ?>
+    if (isset($_GET['msg']) || isset($_POST['message'])){?>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 well-sm bg-warning text-center">;
+        <?php
+            if ($_GET['msg']=="badlogin") {
+                echo "Bad Username or Password. Please Try Again.";
+            }?>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <?php } ?>
 </div>
