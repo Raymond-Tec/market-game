@@ -22,8 +22,8 @@ if ($result){ // If the username exists, check the password
         $_SESSION['last_activity'] = time();
         
         //Update the User table with the current date and time to reflect last login.
-        $lastLogin = $conn->prepare('UPDATE user SET userlastlogin=?');
-        $lastLogin->execute([date('Y-m-d H:i:s')]);
+        $lastLogin = $conn->prepare('UPDATE user SET userlastlogin=? WHERE username=?');
+        $lastLogin->execute([date('Y-m-d H:i:s'),$_POST['username']]);
 
         //Close the database connection
         $conn=null;
