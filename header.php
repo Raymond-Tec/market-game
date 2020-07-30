@@ -1,9 +1,10 @@
 <div class="container-fluid page-header">
     <div class="row">
         <div class="col-10">
-            <h1><?php echo $gameName; ?></h1> 
+            <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
         </div>
         <div class="col">
+            <a href="index.php?loc=news" alt="News">News</a>
             <?php
             if (isset($_SESSION['username'])) {
                 echo "<a href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a><br>";
