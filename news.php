@@ -13,8 +13,13 @@ if (isset($_SESSION["username"])) {
     }
 } else {
     //Query the news table for all published storeis, public only.
-    $stmt = $conn->prepare("SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsstatus = 'Published' AND newspubpriv = 'Public'"); //Query the news table
-    echo "<p>Logged out news.";
+    $news = $conn->query('SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsstatus = \'Published\' AND newspubpriv = \'Public\''); //Query the news table
+    while ($row = $news->fetch()) 
+    {
+        echo "<h2>".$row['newstitle']."</h2>";
+        echo "<h4>"."Published On: ".$row['newsdate']." | Written by: ".$row['newsauthor'];
+        echo "<p>".$row['newstext']."</p>";
+    }
 }
 
 $conn=null; //close DB connection
