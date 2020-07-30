@@ -1,5 +1,5 @@
 <?php
-function shorten_string($string, $wordsreturned)
+function shorten_newsString($string, $wordsreturned)
 /*  Returns the first $wordsreturned out of $string.  If string
 contains fewer words than $wordsreturned, the entire string
 is returned.
@@ -19,7 +19,7 @@ else
 */
 {
 array_splice($array, $wordsreturned);
-$retval = implode(" ", $array)." ...";
+$retval = implode(" ", $array)."<a href=\"index.php?loc=news&newsid=".$row['newsid']."\" title=\"".$row['newstitle']."\">...More</a>";
 }
 return $retval;
 }
