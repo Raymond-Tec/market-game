@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'functions.php';
 $conn = accessdb(); //open the connection to the database
 
 try {
