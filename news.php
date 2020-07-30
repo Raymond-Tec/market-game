@@ -8,8 +8,8 @@ if (isset($_SESSION["username"])) {
     while ($row = $news->fetch()) 
     {
         echo "<h2>".$row['newstitle']."</h2>";
-        /*echo "<h4>Published On: $row['newsdate'] | Written by: $row['newsauthor'] | Status: $row['newspubpriv']";
-        echo "<p>$row['newstext']</p>";*/
+        echo "<h4>"."Published On: ".$row['newsdate']." | Written by: ".$row['newsauthor']." | Status: ".$row['newspubpriv'];
+        echo "<p>".$row['newstext']."</p>";
     }
 } else {
     //Query the news table for all published storeis, public only.
