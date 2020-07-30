@@ -12,7 +12,7 @@ if (isset($_SESSION["username"])) {
         $author = $conn->prepare('SELECT userid, nickname FROM user WHERE userid = ?'); //Prepare SQL statement to find the Author's nickname from the userid on the post
         $author->execute([$row['newsauthor']]); //Execute the SQL statement
         $auth_result = $author->fetch(PDO::FETCH_ASSOC); //Put the statement into an associative array
-        shorten_string($row['newstext'], $newsreturned);
+        $newsreturned = shorten_string($row['newstext'],'100');
         echo "<h4>".$row['newstitle']."<br><small>";
         echo "Published On: ".$row['newsdate']." | Written by: ".$auth_result['nickname']." | Status: ".$row['newspubpriv']."</small></h4>";
         echo "<p>".$newsreturned."</p>";
