@@ -28,14 +28,14 @@ if ($result){
             echo $sql."<br>".$e->getMessage();
         }
         $conn = null; //Close database connection
-        header('Location: index.php?msg=loginsuccess');
+        header('Location: ../index.php?msg=loginsuccess');
         exit();
     } else {
         //Remove all session variables, destroy the session, close the database connection
         session_unset();
         session_destroy();
         $conn=null; //Close database connection
-        header('Location: index.php?loc=loginform&msg=badlogin');
+        header('Location: ../index.php?loc=loginform&msg=badlogin');
         exit();
     }
 } else {
@@ -43,7 +43,7 @@ if ($result){
     session_unset();
     session_destroy();
     $conn=null; //Close database connection
-    header('Location: index.php?loc=loginform&msg=badlogin');
+    header('Location: ../index.php?loc=loginform&msg=badlogin');
     exit();
 }
 
