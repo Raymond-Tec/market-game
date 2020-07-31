@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-1"></div>
-        <div class="col">
+        <div class="col-4">
             <form action="do_login.php" id="loginform" method="post" autocomplete="on">
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" required autofocus>
