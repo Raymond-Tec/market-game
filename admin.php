@@ -1,6 +1,10 @@
 <?php
     session_start();
-    $allowed = checkAccess($_SESSION['usergroup'], 0);
+    if (isset($_SESSION['username'])) {
+        $allowed = checkAccess($_SESSION['usergroup'], 1);
+    } else {
+        header('Location: index.php');
+    }
 ?>
 
 <div class="container bg-light">
