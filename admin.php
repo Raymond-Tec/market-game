@@ -1,7 +1,10 @@
 <?php
     session_start();
-    $allowed = checkAccess($_SESSION['usergroup'], 0);
+    $allowin = 0;
+    $allowed = checkAccess($_SESSION['usergroup'], $allowedin);
 if ($allowed == 0){
+    echo "User group: ".$_SESSION['usergroup'];
+    echo "Group allowed in: ".$allowedin;
     echo "Allowed value: ".$allowed;
 } ?>
 
