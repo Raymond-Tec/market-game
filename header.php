@@ -1,4 +1,4 @@
-<div class="container page-header">
+<div class="container page-header shadow-sm bg-light">
     <div class="row">
         <div class="col-9">
             <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
