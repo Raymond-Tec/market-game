@@ -9,13 +9,15 @@
             } elseif ($_GET['msg']=="logoutsuccess") {
                 echo "<span class=\"alert-success\">You have successfully logged out.</span>";
             } elseif ($_GET['msg']=="loginsuccess") {
-                echo "<span class=\"alert-success well-sm\">You have successfully logged in, ".$_SESSION['nickname'].".";
+                echo "<span class=\"alert-success\">You have successfully logged in, ".$_SESSION['nickname'].".";
             } elseif ($_GET['msg']=="badregpw") {
                 echo "<span class=\"alert-danger\">Passwords don't match.</span>";
             } elseif ($_GET['msg']=="badregun") {
                 echo "<span class=\"alert-danger\">Username already exists, please select another</span>";
             } elseif ($_GET['msg']=="badregpwsec") {
                 echo "<span class=\"alert-danger\">Passwords must be at least 8 characters, contain at least one letter, one number, and one special character. Please try again.</span>";
+            } elseif ($_GET['msg']=="goodreg") {
+                echo "<span class=\"alert-success\">Registration successful. You may now login.";
             }
         ?>
         </div>

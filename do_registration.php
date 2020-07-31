@@ -19,6 +19,18 @@ if (strlen($newPW1)<8 || !preg_match("#[0-9]+#",$newPW1) || !preg_match("#[a-zA-
     header($url);
     exit();
 } 
-echo "Password is good.";
+
+//Open DB and pull all usernames out of user DB to verify the new username is available.
+$conn = accessdb();
+
+$users = $conn->query('SELECT userid, username FROM user');
+while ($userResult = $users->fetch()) {
+    if ($newUsername == $userResult['username']) {
+        $url="Location: index.php?loc=registration&username=".$newUsername."&email=".$newEmail."&nickname=".$newNickname."&msg=badregun";
+        header($url);
+        exit();
+    }
+}
+
 //if ($_POST['username'])
 ?>
