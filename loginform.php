@@ -1,6 +1,6 @@
 <div class="container bg-light">
     <div class="row">
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-10">
             <h4>Login</h4>
         </div>
@@ -17,7 +17,7 @@
             <input type="password" id="password" name="password" required><br>
         </div>
     </div>
-    <div class="row p-5">
+    <div class="row pt-3">
         <div class="col-1"></div>
         <div class="col-2">
             <input type="submit" value="Login">
