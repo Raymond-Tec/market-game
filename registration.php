@@ -8,12 +8,12 @@
         <div class="col">
             <form action="do_registration.php" class="needs-validation" id="loginform" method="post" autocomplete="off">
             <label for="username">Username:</label><br>
-            <input type="text" id="username" class="form-control" name="username" required autofocus>
+            <input type="text" id="username" class="form-control" name="username" value="<?php $_GET['username']; ?>" required autofocus>
             <label for="email">Email:</label><br>
-            <input type="email" id="email" class="form-control" name="email" required>
+            <input type="email" id="email" class="form-control" name="email" value="<?php $_GET['email']; ?>"  required>
             <label for="text">Nickname:</label><br>
-            <input type="text" id="nickname" class="form-control" name="nickname" required>
-            <p class="text-danger">Make this different from your username to protect your account.</p>
+            <input type="text" id="nickname" class="form-control" name="nickname" value="<?php $_GET['nickname']; ?>"  required>
+            <p class="text-danger">Make this different than your username to protect your account.</p>
         </div>
         <div class="col">
             <label for="password1">Enter A Password:</label><br>
