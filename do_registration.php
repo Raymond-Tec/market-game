@@ -11,6 +11,14 @@ $newPW2 = $_POST['password2'];
 if ($newPW1 !== $newPW2) {
     $url="Location: index.php?loc=registration&username=".$newUsername."&email=".$newEmail."&nickname=".$newNickname."&msg=badregpw";
     header($url);
+    exit();
+}
+
+//Check to make sure passwords are at least 8 characters have at least 1 letter, 1 number, and 1 special character.
+if (strlen($newPW1)<8) {
+    $url="Location: index.php?loc=registration&username=".$newUsername."&email=".$newEmail."&nickname=".$newNickname."&msg=badregpwshort";
+    header($url);
+    exit();
 }
 
 //if ($_POST['username'])

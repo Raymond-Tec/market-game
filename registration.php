@@ -16,10 +16,11 @@
             <p class="text-danger">Make this different than your username to protect your account.</p>
         </div>
         <div class="col">
+            <p class="text-danger">Make sure passwords are at least 8 characters and contain at least 1 number, 1 letter, and 1 special character.</p>
             <label for="password1">Enter A Password:</label><br>
             <input type="password" id="password1" class="form-control" name="password1" required>
             <label for="password2">Confirm Your Password:</label><br>
-            <input type="password" id="password2" class="form-control" name="password2" required>
+            <input type="password" id="password2" class="form-control" name="password2" required>            
             <div class="pt-3"><input type="submit" class="btn btn-primary" value="Register"></div>
             </form>
         </div>

@@ -2,7 +2,7 @@
 <div class="container bg-light">
     <div class="row">
         <div class="col-3"></div>
-        <div class="col-6 text-center p-2">
+        <div class="col-6 text-center well-sm p-2">
         <?php
             if ($_GET['msg']=="badlogin") {
                 echo "<span class=\"alert-danger\">Incorrect Username or Password.</span>";
@@ -14,6 +14,8 @@
                 echo "<span class=\"alert-danger\">Passwords don't match.</span>";
             } elseif ($_GET['msg']=="badregun") {
                 echo "<span class=\"alert-danger\">Username already exists, please select another</span>";
+            } elseif ($_GET['msg']=="badregpwshort") {
+                echo "<span class=\"alert-danger\">Password is too short. Please try again.</span>";
             }
         ?>
         </div>
