@@ -14,7 +14,7 @@
                 echo "<span class=\"alert-danger\">Passwords don't match.</span>";
             } elseif ($_GET['msg']=="badregun") {
                 echo "<span class=\"alert-danger\">Username already exists, please select another</span>";
-            } elseif ($_GET['msg']=="badregpw") {
+            } elseif ($_GET['msg']=="badregpwsec") {
                 echo "<span class=\"alert-danger\">Passwords must be at least 8 characters, contain at least one letter, one number, and one special character. Please try again.</span>";
             }
         ?>
