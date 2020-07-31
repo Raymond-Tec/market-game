@@ -2,7 +2,7 @@
 <div class="container bg-light">
     <div class="row">
         <div class="col-3"></div>
-        <div class="col-6 text-center">
+        <div class="col-6 text-center p-2">
         <?php
             if ($_GET['msg']=="badlogin") {
                 echo "<span class=\"alert-danger well-sm\">Incorrect Username or Password.</span>";
