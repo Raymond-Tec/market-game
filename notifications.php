@@ -1,5 +1,5 @@
 <?php if (isset($_GET['msg']) || isset($_POST['message'])){?>
-<div class="container row bg-light">
+<div class="row bg-light">
     <div class="col-3"></div>
     <div class="col-6 well-sm text-center">
     <?php
