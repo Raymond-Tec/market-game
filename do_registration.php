@@ -35,9 +35,13 @@ while ($userResult = $users->fetch()) {
 //You'll want to verify the email address isn't already being used. Will also need to create a forgot password page.
 
 //Finally, do the user record insert.
-$insertUser = $conn->prepare('INSERT INTO users (username, password, usergroup, email, nickname, usercreated, userlastlogin) VALUES (:username,:password,255,:email,:nickname,:usercreated,:userlastlogin)');
-$insertUser->execute(['username' => $newUsername, 'password' => $newPW1, 'email'=>$newEmail, 'nickname'=>$newNickname, 'usercreated'=>date('Y-m-d H:i:s'),'userlastlogin'=>date('Y-m-d H:i:s')]);
-$url="Location: index.php?loc=registration&username=".$newUsername."&email=".$newEmail."&nickname=".$newNickname."&msg=goodreg";
-header($url);
-exit();
+try {
+    $insertUser = $conn->prepare('INSERT INTO users (username, password, usergroup, email, nickname, usercreated, userlastlogin) VALUES (:username,:password,255,:email,:nickname,:usercreated,:userlastlogin)');
+    $insertUser->execute(['username' => $newUsername, 'password' => $newPW1, 'email'=>$newEmail, 'nickname'=>$newNickname, 'usercreated'=>date('Y-m-d H:i:s'),'userlastlogin'=>date('Y-m-d H:i:s')]);
+    $url="Location: index.php?loc=registration&username=".$newUsername."&email=".$newEmail."&nickname=".$newNickname."&msg=goodreg";
+    header($url);
+    exit();
+} catch(PDOException $e) {
+    echo $insertURL . "<br>" . $e->getMessage();
+}
 ?>
