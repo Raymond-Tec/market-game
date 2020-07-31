@@ -6,8 +6,12 @@
         header('Location: index.php');
     }
 ?>
-
 <div class="container bg-light">
+    <div class="row">
+        <div class="col">
+            <h2>Administration</h2>
+        </div>
+    </div>
     <div class="row">
         <div class="col-1"></div>
         <div class="col">
