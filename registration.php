@@ -20,7 +20,7 @@
             <input type="password" id="password1" class="form-control" name="password1" required>
             <label for="password2">Confirm Your Password:</label><br>
             <input type="password" id="password2" class="form-control" name="password2" required>
-            <div class="pt-2"><input type="submit" class="btn btn-primary" value="Login"></div>
+            <div class="pt-3"><input type="submit" class="btn btn-primary" value="Login"></div>
             </form>
         </div>
     </div>
