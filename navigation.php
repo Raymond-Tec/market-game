@@ -12,17 +12,17 @@
                 <?php
                 if (isset($_SESSION['username'])) {
                     if ($_SESSION['usergroup']==0) {
-                        echo "<a href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a>";
+                        echo "<a class=\"nav-link\" href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a>";
                     } ?>
             </li>
             <li class="nav-item">
                 <?php
-                    echo "<a href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a>"; ?>
+                    echo "<a class=\"nav-link\" href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a>"; ?>
             </li>
             <li class="nav-item">
                 <?php
                 } else {
-                    echo "<a href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
+                    echo "<a class=\"nav-link\" href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
                 }?>
             </li>
         </ul>
