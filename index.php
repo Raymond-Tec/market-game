@@ -26,7 +26,9 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class="container bg-light py-3">
-            <?php include 'header.php';?>
+            <div class="row">
+                <?php include 'header.php';?>
+            </div>
             <?php 
                 if ($_GET["loc"]) {
                     include htmlspecialchars($_GET["loc"]).'.php';    
