@@ -1,4 +1,4 @@
-<div class="container shadow bg-light rounded-bottom">
+<div class="container bg-light">
     <div class="row">
         <div class="col text-center">
             <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
