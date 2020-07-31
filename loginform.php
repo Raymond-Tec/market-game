@@ -23,5 +23,10 @@
         </div>
         <div class="col-10"></div>
     </div>
+    <div class="row">
+        <div class="col text-center">
+            Don't have an account? <a href="index.php?loc=register" title="Account Registration">Click here to register</a>.
+        </div>
+    </div>
 </div>
 
