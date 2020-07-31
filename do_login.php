@@ -27,13 +27,14 @@ if ($result){
         } catch(PDOException $e) {
             echo $sql."<br>".$e->getMessage();
         }
-        $conn = null; //Close the database connection
+        $conn = null; //Close database connection
         header('Location: index.php');
         exit();
     } else {
         //Remove all session variables, destroy the session, close the database connection
         session_unset();
         session_destroy();
+        $conn=null; //Close database connection
         header('Location: index.php?loc=loginform&msg=badlogin');
         exit();
     }
@@ -41,9 +42,10 @@ if ($result){
     //Remove all session variables and destroy the session
     session_unset();
     session_destroy();
+    $conn=null; //Close database connection
     header('Location: index.php?loc=loginform&msg=badlogin');
     exit();
 }
 
-$conn=null; //Close connection to database, the script shouldn't get here but just in case.
+$conn=null; //Close database connection, script shouldn't get here but just in case.
 ?>
