@@ -12,6 +12,7 @@
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" required autofocus>
         </div>
+        <div class="col-1"></div>
         <div class="col">
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password" required><br>
