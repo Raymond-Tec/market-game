@@ -25,7 +25,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="container bg-light">
+        <div class="container bg-light py-3">
             <?php include 'header.php';?>
             <?php 
                 if ($_GET["loc"]) {
