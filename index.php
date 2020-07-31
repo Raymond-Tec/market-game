@@ -22,7 +22,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="bg-dark">
-        <div class="container border border-dark">
+        <div class="bg-light container border border-dark">
             <!--[if lt IE 7]>
                 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
