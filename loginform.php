@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container bg-light">
     <div class="row">
         <div class="col">
             <h2>Login</h2>

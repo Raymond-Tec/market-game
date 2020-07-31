@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col text-center">
+        <div class="col text-right">
             &copy; 2020 Raymond Tec
         </div>
     </div>
