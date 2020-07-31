@@ -1,7 +1,7 @@
 <div class="container bg-light rounded-bottom">
     <div class="row">
         <div class="col text-center">
-            <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
+            <h3><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h3> 
         </div>
     </div>
     <div class="row">
