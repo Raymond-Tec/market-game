@@ -25,11 +25,11 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="container bg-light py-3">
+        <div class="container bg-light">
             <div class="container p-2">
                 <?php include 'header.php';?>
             </div>
-            <div class="container p-2">
+            <div class="container bg-light p-2">
                 <?php 
                     if ($_GET["loc"]) {
                         include htmlspecialchars($_GET["loc"]).'.php';    
@@ -38,7 +38,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
                     }
                 ?>
             </div>
-            <div class="container p-2">
+            <div class="container bg-light p-2">
                 <?php include 'footer.php' ?>
             </div>
         </div>
