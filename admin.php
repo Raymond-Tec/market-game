@@ -3,9 +3,7 @@
     $allowin = 0;
     $allowed = checkAccess($_SESSION['usergroup'], $allowedin);
 if ($allowed == 0){
-    echo "User group: ".$_SESSION['usergroup'];
-    echo "Group allowed in: ".$allowin;
-    echo "Allowed value: ".$allowed;
+    echo "Variable type: ".gettype($_SESSION['usergroup']);
 } ?>
 
 <div class="container bg-light">
