@@ -1,4 +1,4 @@
-<div class="row bg-light">
+<div class="container row bg-light">
 <h2>News</h2>
 <?php
 $conn = accessdb();
