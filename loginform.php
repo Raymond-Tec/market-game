@@ -16,7 +16,7 @@
             <input type="password" id="password" class="form-control" name="password" required><br>
         </div>
     </div>
-    <div class="row p-3">
+    <div class="row">
         <div class="col">
             <input type="submit" class="btn btn-primary" value="Login">
             </form>
