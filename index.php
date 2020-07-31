@@ -38,7 +38,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
                     }
                 ?>
             </div>
-            <div class="row p-3">
+            <div class="row p-2">
                 <?php include 'footer.php' ?>
             </div>
         </div>

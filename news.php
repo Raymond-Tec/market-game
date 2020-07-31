@@ -1,4 +1,3 @@
-<div class="container bg-light">
 <h2>News</h2>
 <?php
 $conn = accessdb();
@@ -44,4 +43,3 @@ if (!isset($_GET['newsid'])) {
 }
 $conn=null; //close DB connection
 ?>
-</div>
