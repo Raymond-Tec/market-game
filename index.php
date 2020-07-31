@@ -32,7 +32,7 @@ if (isset($_SESSION['username']) && (time()-$_SESSION['last_activity']<1800)) {
             <div class="container bg-light p-2">
                 <?php 
                     if ($_GET["loc"]) {
-                        include htmlspecialchars($_GET["loc"]).'.php';    
+                        include 'scripts/'.htmlspecialchars($_GET["loc"]).'.php';    
                     } else {
                         include 'news.php';
                     }

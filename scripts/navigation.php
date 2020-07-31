@@ -21,6 +21,10 @@
             </li>
             <li class="nav-item">
                 <?php
+                    echo "<a class=\"nav-link\" href=\"index.php?loc=account\" alt=\"Account\">Account</a>"; ?>
+            </li>
+            <li class="nav-item">
+                <?php
                 } else {
                     echo "<a class=\"nav-link\" href=\"index.php?loc=registration\" alt=\"Register\">Register</a>";
                 ?>
