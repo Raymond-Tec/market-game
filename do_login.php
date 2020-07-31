@@ -28,7 +28,7 @@ if ($result){
             echo $sql."<br>".$e->getMessage();
         }
         $conn = null; //Close database connection
-        header('Location: index.php');
+        header('Location: index.php?msg=loginsuccess');
         exit();
     } else {
         //Remove all session variables, destroy the session, close the database connection
