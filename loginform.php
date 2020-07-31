@@ -17,7 +17,7 @@
             <input type="password" id="password" name="password" required><br>
         </div>
     </div>
-    <div class="row pt-sm">
+    <div class="row p-5">
         <div class="col-1"></div>
         <div class="col-2">
             <input type="submit" value="Login">
