@@ -1,4 +1,5 @@
 <?php
+//Open a database connection
 function accessdb() {
     require 'dbcreds.php'; //Grab the database credentials
     try {
@@ -24,6 +25,7 @@ function shorten_newsString($string, $wordsreturned, $newsid, $newstitle) {
         return $retval;
 }
 
+//Return user's nickname from user ID
 function ret_nick($nickID) {
     $conn = accessdb();
     $nickname = $conn->prepare('SELECT userid, nickname FROM user WHERE userid = ?'); //Prepare SQL statement to find the Author's nickname from the userid on the post
@@ -31,6 +33,17 @@ function ret_nick($nickID) {
     $nickResult = $nickname->fetch(PDO::FETCH_ASSOC); //Put the statement into an associative array
     $retval = $nickResult['nickname'];
     $conn=null;
+    return $retval;
+}
+
+//Check user access return to index for not authorized, 1 for authorized
+function checkAccess($group,$accessRequired) {
+    if ($group >= $accessRequired) {
+        $retval = 0;
+        header('url=index.php');
+    } else {
+        $retval = 1;
+    }
     return $retval;
 }
 ?>
