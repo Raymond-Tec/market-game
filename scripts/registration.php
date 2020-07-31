@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="do_registration.php" class="needs-validation" id="loginform" method="post" autocomplete="off">
+            <form action="scripts/do_registration.php" class="needs-validation" id="loginform" method="post" autocomplete="off">
             <label for="username">Username:</label><br>
             <input type="text" id="username" class="form-control" name="username" value="<?php echo $_GET['username']; ?>" required autofocus>
             <label for="email">Email:</label><br>

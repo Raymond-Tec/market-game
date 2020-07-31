@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="do_login.php" class="needs-validation" id="loginform" method="post" autocomplete="on">
+            <form action="scripts/do_login.php" class="needs-validation" id="loginform" method="post" autocomplete="on">
             <label for="username">Username:</label><br>
             <input type="text" id="username" class="form-control" name="username" required autofocus>
         </div>
