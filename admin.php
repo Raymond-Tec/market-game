@@ -1,10 +1,7 @@
 <?php
     session_start();
-    $allowin = 0;
-    $allowed = checkAccess($_SESSION['usergroup'], $allowin);
-if ($allowed == 0){
-    echo "Value Returned: ".$allowed;
-} ?>
+    $allowed = checkAccess($_SESSION['usergroup'], 0);
+?>
 
 <div class="container bg-light">
     <div class="row">

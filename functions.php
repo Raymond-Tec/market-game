@@ -38,9 +38,9 @@ function ret_nick($nickID) {
 
 //Check user access return to index for not authorized, 1 for authorized
 function checkAccess($group, $accessRequired) {
-    if ($group >= $accessRequired) {
-        echo "Access required: ".$accessRequired;
+    if ($group > $accessRequired) {
         $retval = 0;
+        header('Location: index.php');
     } else {
         $retval = 1;
     }
