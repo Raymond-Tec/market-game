@@ -40,7 +40,6 @@ function ret_nick($nickID) {
 function checkAccess($group,$accessRequired) {
     if ($group >= $accessRequired) {
         $retval = 0;
-        header('url=index.php');
     } else {
         $retval = 1;
     }

@@ -2,7 +2,7 @@
     session_start();
     $allowed = checkAccess($_SESSION['usergroup'], 0);
 if ($allowed == 0){
-    header('Location: index.php');
+    echo "Allowed value: ".$allowed;
 } ?>
 
 <div class="container bg-light">
