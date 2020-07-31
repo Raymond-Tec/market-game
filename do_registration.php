@@ -14,7 +14,7 @@ if ($newPW1 !== $newPW2) {
     exit();
 }
 //Check to make sure passwords are at least 8 characters have at least 1 letter, 1 number, and 1 special character.
-if (strlen($newPW1)<8 || !preg_match("#[0-9]+#",$newPW1) || !preg_match("#[a-zA-Z]+#",$newPW1) || !preg_match("[^\da-zA-Z]",$newPW1)) {
+if (strlen($newPW1)<8 || !preg_match("#[0-9]+#",$newPW1) || !preg_match("#[a-zA-Z]+#",$newPW1) || !preg_match("@[^\w]@",$newPW1)) {
     $url="Location: index.php?loc=registration&username=".$newUsername."&email=".$newEmail."&nickname=".$newNickname."&msg=badregpwsec";
     header($url);
     exit();
