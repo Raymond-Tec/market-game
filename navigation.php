@@ -6,13 +6,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.php?loc=news" alt="News">News <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php?loc=news" alt="News">News</a>
             </li>
             <li class="nav-item">
                 <?php
                 if (isset($_SESSION['username'])) {
                     if ($_SESSION['usergroup']==0) {
-                        echo "<a href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a> | ";
+                        echo "<a href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a>";
                     } ?>
             </li>
             <li class="nav-item">
