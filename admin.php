@@ -1,9 +1,9 @@
 <?php
     session_start();
     $allowin = 0;
-    $allowed = checkAccess($_SESSION['usergroup'], $allowedin);
+    $allowed = checkAccess($_SESSION['usergroup'], $allowin);
 if ($allowed == 0){
-    echo "Variable type: ".gettype($_SESSION['usergroup']);
+    echo "Value Returned: ".$allowed;
 } ?>
 
 <div class="container bg-light">
