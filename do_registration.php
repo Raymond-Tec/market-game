@@ -19,7 +19,6 @@ if (strlen($newPW1)<8 || !preg_match("#[0-9]+#",$newPW1) || !preg_match("#[a-zA-
     header($url);
     exit();
 } 
-
 //Open DB and pull all usernames out of user DB to verify the new username is available.
 $conn = accessdb();
 
@@ -31,13 +30,16 @@ while ($userResult = $users->fetch()) {
         exit();
     }
 }
+//Password meets criteria. Username is unique. Now, hash the password.
+$options = [ 'cost' => 13, ];
+$hashedpw = password_hash($newPW1, PASSWORD_BCRYPT, $options);
 
 //You'll want to verify the email address isn't already being used. Will also need to create a forgot password page.
 
 //Finally, do the user record insert.
 try {
     $insertUser = $conn->prepare('INSERT INTO user (username, password, usergroup, email, nickname, usercreated, userlastlogin) VALUES (:username,:password,127,:email,:nickname,:usercreated,:userlastlogin)');
-    $insertUser->execute(['username' => $newUsername, 'password' => $newPW1, 'email'=>$newEmail, 'nickname'=>$newNickname, 'usercreated'=>date('Y-m-d H:i:s'),'userlastlogin'=>date('Y-m-d H:i:s')]);
+    $insertUser->execute(['username' => $newUsername, 'password' => $hashedpw, 'email'=>$newEmail, 'nickname'=>$newNickname, 'usercreated'=>date('Y-m-d H:i:s'),'userlastlogin'=>date('Y-m-d H:i:s')]);
     $url="Location: index.php?loc=loginform&msg=goodreg";
     header($url);
     exit();
