@@ -12,9 +12,17 @@
         selector: '#mytextarea'
     })
 </script>
+<?php
+    if (isset($_GET['newsid'])) {
 
+    }
+?>
 <div class="container bg-light">
     <div class="row p-3">
+        <div class="col">
+            <label for="newstitle">Newstitle:</label>
+            <input type="text" class="">
+        </div>
         <div class="col">
             <form method="post">
                 <textarea id="mytextarea" name="mytextarea">

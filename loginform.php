@@ -7,19 +7,20 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="do_login.php" id="loginform" method="post" autocomplete="on">
+            <form action="do_login.php" class="needs-validation" id="loginform" method="post" autocomplete="on">
             <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required autofocus>
+            <input type="text" id="username" class="form-control" name="username" required autofocus>
         </div>
         <div class="col">
             <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br>
+            <input type="password" id="password" class="form-control" name="password" required><br>
         </div>
     </div>
     <div class="row pt-3">
         <div class="col-1"></div>
         <div class="col-2">
-            <input type="submit" value="Login">
+            <input type="submit" class="btn btn-primary" value="Login">
+            <div class="invalid-feedback">Username and password must be entered.</div>
             </form>
         </div>
         <div class="col-10"></div>
