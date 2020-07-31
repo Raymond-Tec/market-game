@@ -16,11 +16,9 @@
             <input type="password" id="password" class="form-control" name="password" required><br>
         </div>
     </div>
-    <div class="row pt-3">
-        <div class="col-1"></div>
-        <div class="col-2">
+    <div class="row p-3">
+        <div class="col">
             <input type="submit" class="btn btn-primary" value="Login">
-            <div class="invalid-feedback">Username and password must be entered.</div>
             </form>
         </div>
         <div class="col-10"></div>
