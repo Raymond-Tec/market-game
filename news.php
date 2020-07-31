@@ -2,7 +2,7 @@
 <h2>News</h2>
 <?php
 $conn = accessdb();
-
+echo "This is your usergroup: ".$_SESSION['usergroup'];
 if (!isset($_GET['newsid'])) {
     //If news ID is not set in the URL, display all news
     if (isset($_SESSION["username"])) {
