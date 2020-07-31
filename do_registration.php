@@ -38,7 +38,7 @@ while ($userResult = $users->fetch()) {
 try {
     $insertUser = $conn->prepare('INSERT INTO user (username, password, usergroup, email, nickname, usercreated, userlastlogin) VALUES (:username,:password,127,:email,:nickname,:usercreated,:userlastlogin)');
     $insertUser->execute(['username' => $newUsername, 'password' => $newPW1, 'email'=>$newEmail, 'nickname'=>$newNickname, 'usercreated'=>date('Y-m-d H:i:s'),'userlastlogin'=>date('Y-m-d H:i:s')]);
-    $url="Location: index.php?loc=registration&username=".$newUsername."&email=".$newEmail."&nickname=".$newNickname."&msg=goodreg";
+    $url="Location: index.php?loc=loginform&msg=goodreg";
     header($url);
     exit();
 } catch(PDOException $e) {
