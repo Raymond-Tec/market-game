@@ -8,7 +8,7 @@ $conn = accessdb(); //open the connection to the database
 if ($_POST['email']) {
     //Find email address in database
     try {
-        $stmt = $conn->prepare("SELECT email FROM user WHERE email = ?"); //Query the user table
+        $stmt = $conn->prepare("SELECT email, nickname FROM user WHERE email = ?"); //Query the user table
         $stmt->execute([strtolower($_POST['email'])]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC); //Fetch the single result
     } catch(PDOException $e) {
@@ -22,7 +22,6 @@ if ($_POST['email']) {
         $url = "https://raymondtec.com/market-game/index.php?loc=pwreset&fpw=".$token; //Build the URL for the email from token
         $sub = $gameName." Password Reset";
         $msg = $result['nickname'].",\nSomeone, possibly you, attempted to reset your password for your account. If it was you, please <a href=\"".$url."\" title=\"Password Reset\">click this link</a> within 30 minutes.\nIf it wasn't you, you may disregard this email.";
-        $resetemail = sendMail($result['email'],$sub,$msg); //Send the email
 
         //Put the token and the token expiry into the database
         try {
@@ -31,6 +30,7 @@ if ($_POST['email']) {
         } catch(PDOException $e) {
             echo $sql."<br>".$e->getMessage();
         }
+        $resetemail = sendMail($result['email'],$sub,$msg); //Send the email
         $conn = null; //Close database connection
         header('Location: ../index.php?msg=pwreset');
         exit();
