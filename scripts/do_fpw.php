@@ -3,10 +3,10 @@ session_start();
 require 'mgstats.php';
 require 'functions.php';
 $conn = accessdb(); //open the connection to the database
-
+echo "Database opened.\n";
 //Determine if this file is being called to search for and send the email or reset the password.
 if ($_POST['email']) {
-
+    echo "Found email address in POST.\n";
     //Find email address in database
     try {
         $stmt = $conn->prepare("SELECT email FROM user WHERE email = ?"); //Query the user table
