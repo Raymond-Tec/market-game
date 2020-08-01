@@ -26,7 +26,7 @@ if ($_POST['email']) {
 
         //Put the token and the token expiry into the database
         try {
-            $setToken = $conn->prepare('UPDATE user SET token=:token tokenexpiry=:tokenexpiry WHERE email=:email');
+            $setToken = $conn->prepare('UPDATE user SET token=:token, tokenexpiry=:tokenexpiry WHERE email=:email');
             $setToken->execute(['token'=>$token,'tokenexpiry'=>$tokenTime,'email'=>$strtolower($_POST['email'])]);
         } catch(PDOException $e) {
             echo "Error: ".$e->getMessage();
