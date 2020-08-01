@@ -1,7 +1,8 @@
 <?php
 //Open a database connection
 function accessdb() {
-    require 'scripts/dbcreds.php'; //Grab the database credentials
+    require 'dbcreds.php'; //Grab the database credentials
+    echo $dsn; 
     try {
         $conn = new PDO($dsn, $dbun, $dbpw, $options);
     } catch(PDOException $e) {
