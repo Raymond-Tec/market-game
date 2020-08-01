@@ -86,11 +86,11 @@ if ($_POST['email']) {
             //Hash the password
             $options = [ 'cost' => 13, ];
             $hashedPW = password_hash($newPW1, PASSWORD_BCRYPT, $options);
+            $resetemail = strtolower($result['email']);
             //Update the password in the DB
             try {
                 $resetPW = $conn->prepare('UPDATE user SET password=:password, token=null, tokenexpiry=null WHERE email=:email');
-                echo $hashedPW."<br><br>";
-                $resetPW->execute(['password'=>$hashedPW,'email'=>$result('email')]);
+                $resetPW->execute(['password'=>$hashedPW,'email'=>$resetemail]);
                 echo "SQL Executed.<br><br>";
             } catch(PDOException $e) {
                 echo "Error: ".$e->getMessage();
