@@ -83,11 +83,14 @@ if ($_POST['email']) {
                 exit();
             } 
             echo "Passwords are secure.<br><br>";
+            //Hash the password
+            $options = [ 'cost' => 13, ];
+            $hashedPW = password_hash($newPW1, PASSWORD_BCRYPT, $options);
             //Update the password in the DB
             try {
-                $options = [ 'cost' => 13, ];
-                $hashedPW = password_hash($newPW1, PASSWORD_BCRYPT, $options);
                 $resetPW = $conn->prepare('UPDATE user SET password=:password, token=null, tokenexpiry=null WHERE email=:email');
+                echo $hashedPW."<br><br>";
+                echo $resetPW."<br><br>";
                 $resetPW->execute(['password'=>$hashedPW,'email'=>$result('email')]);
             } catch(PDOException $e) {
                 echo "Error: ".$e->getMessage();
