@@ -113,7 +113,7 @@ if ($_POST['email']) {
     //Arrive here if email and fpw aren't set by post.
     echo "No email address or token.\n";
     $conn = null;
-    header('url=../index.php');
+    header('Location: ../index.php');
     exit();
 }
 ?>
