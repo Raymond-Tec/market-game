@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row text-center">
     <div class="col">
         <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
     </div>
