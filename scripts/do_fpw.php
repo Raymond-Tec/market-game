@@ -63,7 +63,7 @@ if ($_POST['email']) {
         echo "Token Found.<br><br>";
         //Verify that the token hasn't expired.
         $tokenexpiry = $result['tokenexpiry'] + 1800;
-        echo "Current Unix Time: ".time()."<br><br>";
+        echo "Current Unix Time: ".time()."<br><br>".gettype($tokenexpiry)."<br><br>";
         echo "Token Expires: ".$tokenexpiry."<br><br>";
         if ($tokenexpiry<=time()) {
             echo "Token is not expired.<br><br>";
