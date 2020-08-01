@@ -100,6 +100,7 @@ if ($_POST['email']) {
             header('url=../index.php?loc=loginform&msg=newpw');
             exit();
         } else {
+            echo "Token expired.<br><br>";
             //If the token has expired, send the user to the forgot password page to try again
             $conn = null;
             header('url=../index.php?loc=forgotpw&msg=pwtokenexpired');
