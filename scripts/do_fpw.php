@@ -47,7 +47,6 @@ if ($_POST['email']) {
         exit();
     }
 } elseif ($_GET['fpw']) {
-    echo "There's a token.<br><br>";
     //Verify the token hasn't expired and update the record
     //Find email address in database and pull the token and token expiry
     try {
@@ -60,7 +59,6 @@ if ($_POST['email']) {
     }
     //Check to make sure that the token is legit. If not, return to the home page.
     if ($result) {
-        echo "Token Found.<br><br>";
         //Verify that the token hasn't expired.
         if ($result['tokenexpiry']+1800>=time()) {
             //Check to make sure the passwords match and are secure.
@@ -74,7 +72,6 @@ if ($_POST['email']) {
                 header($url);
                 exit();
             }
-            echo "Passwords match.<br><br>";
             //Check to make sure passwords are at least 8 characters have at least 1 letter, 1 number, and 1 special character.
             if (strlen($newPW1)<8 || !preg_match("#[0-9]+#",$newPW1) || !preg_match("#[a-zA-Z]+#",$newPW1) || !preg_match("@[^\w]@",$newPW1)) {
                 $conn=null;
@@ -82,7 +79,6 @@ if ($_POST['email']) {
                 header($url);
                 exit();
             } 
-            echo "Passwords are secure.<br><br>";
             //Hash the password
             $options = [ 'cost' => 13, ];
             $hashedPW = password_hash($newPW1, PASSWORD_BCRYPT, $options);
@@ -91,7 +87,6 @@ if ($_POST['email']) {
             try {
                 $resetPW = $conn->prepare('UPDATE user SET password=:password, token=null, tokenexpiry=null WHERE email=:email');
                 $resetPW->execute(['password'=>$hashedPW,'email'=>$resetemail]);
-                echo "SQL Executed.<br><br>";
             } catch(PDOException $e) {
                 echo "Error: ".$e->getMessage();
                 exit();
