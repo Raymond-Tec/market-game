@@ -39,7 +39,7 @@ $hashedpw = password_hash($newPW1, PASSWORD_BCRYPT, $options);
 //Finally, do the user record insert.
 try {
     $insertUser = $conn->prepare('INSERT INTO user (username, password, usergroup, email, nickname, usercreated, userlastlogin) VALUES (:username,:password,127,:email,:nickname,:usercreated,:userlastlogin)');
-    $insertUser->execute(['username' => $newUsername, 'password' => $hashedpw, 'email'=>$newEmail, 'nickname'=>$newNickname, 'usercreated'=>date('Y-m-d H:i:s'),'userlastlogin'=>date('Y-m-d H:i:s')]);
+    $insertUser->execute(['username' => $newUsername, 'password' => $hashedpw, 'email'=>strtolower($newEmail), 'nickname'=>$newNickname, 'usercreated'=>date('Y-m-d H:i:s'),'userlastlogin'=>date('Y-m-d H:i:s')]);
     $url="Location: ../index.php?loc=loginform&msg=goodreg";
     header($url);
     exit();

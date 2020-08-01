@@ -1,7 +1,6 @@
 <div class="container bg-light">
     <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
+        <div class="col">
             <h4>Login</h4>
         </div>
     </div>

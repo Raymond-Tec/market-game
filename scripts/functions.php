@@ -46,4 +46,10 @@ function checkAccess($group, $accessRequired) {
     }
     return $retval;
 }
+
+//Send emails to users
+function sendMail($uemail, $subj, $body) {
+    $msg=wordwrap($body,70);
+    mail($uemail,$subj,$body);
+}
 ?>

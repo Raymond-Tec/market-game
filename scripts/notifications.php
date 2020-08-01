@@ -18,6 +18,12 @@
                 echo "<span class=\"alert-danger\">Passwords must be at least 8 characters, contain at least one letter, one number, and one special character. Please try again.</span>";
             } elseif ($_GET['msg']=="goodreg") {
                 echo "<span class=\"alert-success\">Registration successful. You may now login.";
+            } elseif ($_GET['msg']=="pwreset") {
+                echo "<span class=\"alert-warning\">Password reset email has been sent.</span>";
+            } elseif ($_GET['msg']=="newpw") {
+                echo "<span class=\"alert-success\">Password successfully reset.</span>";
+            } elseif ($_GET['msg']=="pwtokenexpired") {
+                echo "<span class=\"alert-danger\">Password reset token has expired. Please enter your email again.</span>";
             }
         ?>
         </div>
