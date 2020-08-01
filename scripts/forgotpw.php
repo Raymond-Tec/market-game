@@ -15,4 +15,11 @@
         </div>
         <div class="col-2"></div>
     </div>
+    <div class="row">
+        <div class="col text-center">
+            <div class="well-sm">
+                <span class="text-danger">Your IP address (<?php echo $_SERVER['REMOTE_ADDR']; ?>) and User Agent (<?php echo $_SERVER['HTTP_USER_AGENT']; ?>) will be sent to the recipient of this email.</span>
+            </div>
+        </div>
+    </div>
 </div>

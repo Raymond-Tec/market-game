@@ -27,7 +27,7 @@ if ($_POST['email']) {
         //Put the token and the token expiry into the database
         try {
             $setToken = $conn->prepare('UPDATE user SET token=:token tokenexpiry=:tokenexpiry WHERE email=:email');
-            $setToken->execute(['token'=>$token,'tokenexpiry'=>$tokenTime,'email'=>$result('email')]);
+            $setToken->execute(['token'=>$token,'tokenexpiry'=>$tokenTime,'email'=>$strtolower($_POST['email'])]);
         } catch(PDOException $e) {
             echo "Error: ".$e->getMessage();
             exit();
@@ -85,8 +85,8 @@ if ($_POST['email']) {
             //Update the password in the DB
             try {
                 $hashedPW = password_hash($newPW1, PASSWORD_BCRYPT, $options);
-                $setToken = $conn->prepare('UPDATE user SET password=:password, token=null, tokenexpiry=null WHERE email=:email');
-                $setToken->execute(['password'=>$hashedPW,'email'=>$result('email')]);
+                $resetPW = $conn->prepare('UPDATE user SET password=:password, token=null, tokenexpiry=null WHERE email=:email');
+                $resetPW->execute(['password'=>$hashedPW,'email'=>$result('email')]);
             } catch(PDOException $e) {
                 echo "Error: ".$e->getMessage();
                 exit();
