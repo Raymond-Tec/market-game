@@ -2,7 +2,7 @@
 session_start();
 require 'functions.php';
 $conn = accessdb(); //open the connection to the database
-
+echo "DB Accessed.";
 try {
     $stmt = $conn->prepare("SELECT userid, username, password, usergroup, email, nickname FROM user WHERE username = ?"); //Query the user table
     $stmt->execute([$_POST['username']]);
