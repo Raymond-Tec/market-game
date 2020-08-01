@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="scripts/do_fpw.php" class="needs-validation" id="fpwform" method="post" autocomplete="on">
+            <form action="scripts/do_fpw.php?fpw=<?php echo $_GET['fpw']; ?>" class="needs-validation" id="fpwform" method="post" autocomplete="on">
             <p class="text-danger">Make sure passwords are at least 8 characters and contain at least 1 number, 1 letter, and 1 special character.</p>
             <label for="password1">Enter A Password:</label><br>
             <input type="password" id="password1" class="form-control" name="password1" required>

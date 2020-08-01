@@ -13,6 +13,7 @@ if ($_POST['email']) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC); //Fetch the single result
     } catch(PDOException $e) {
         echo "Error: ".$e->getMessage(); //Error handling and display
+        exit();
     }
 
     //If the email address exists
@@ -26,11 +27,10 @@ if ($_POST['email']) {
         //Put the token and the token expiry into the database
         try {
             $setToken = $conn->prepare('UPDATE user SET token=:token tokenexpiry=:tokenexpiry WHERE email=:email');
-            echo "Statement prepared.<br>";
             $setToken->execute(['token'=>$token,'tokenexpiry'=>$tokenTime,'email'=>$result('email')]);
-            echo "Statement executed.<br>";
         } catch(PDOException $e) {
             echo "Error: ".$e->getMessage();
+            exit();
         }
         $resetemail = sendMail($result['email'],$sub,$msg); //Send the email
         $conn = null; //Close database connection
@@ -55,6 +55,7 @@ if ($_POST['email']) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC); //Fetch the single result
     } catch(PDOException $e) {
         echo "Error: ".$e->getMessage(); //Error handling and display
+        exit();
     }
     //Check to make sure that the token is legit. If not, return to the home page.
     if ($result) {
@@ -87,6 +88,7 @@ if ($_POST['email']) {
                 $setToken->execute([$newPW1,$result('email')]);
             } catch(PDOException $e) {
                 echo $sql."<br>".$e->getMessage();
+                exit();
             }
             //Send user to login form with success message
             $conn = null;
