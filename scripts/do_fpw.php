@@ -84,10 +84,11 @@ if ($_POST['email']) {
 
             //Update the password in the DB
             try {
-                $setToken = $conn->prepare('UPDATE user SET password=? WHERE email=?');
-                $setToken->execute([$newPW1,$result('email')]);
+                $hashedPW = password_hash($newPW1, PASSWORD_BCRYPT, $options);
+                $setToken = $conn->prepare('UPDATE user SET password=:password, token=null, tokenexpiry=null WHERE email=:email');
+                $setToken->execute(['password'=>$hashedPW,'email'=>$result('email')]);
             } catch(PDOException $e) {
-                echo $sql."<br>".$e->getMessage();
+                echo "Error: ".$e->getMessage();
                 exit();
             }
             //Send user to login form with success message
