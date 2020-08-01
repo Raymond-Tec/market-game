@@ -93,7 +93,7 @@ if ($_POST['email']) {
             }
             //Send user to login form with success message
             $conn = null;
-            header('url=../index.php?loc=loginform&msg=newpw');
+            header('Location: ../index.php?loc=loginform&msg=newpw');
             exit();
         } else {
             echo "Token expired.<br><br>";
