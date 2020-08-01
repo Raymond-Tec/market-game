@@ -25,7 +25,8 @@
     </div>
     <div class="row">
         <div class="col text-center">
-            Don't have an account? <a href="index.php?loc=registration" title="Account Registration">Click here to register</a>.
+            <p>Forgot your password? <a href="index.php?loc=forgotpw" title="Forgot Password">Click here</a> to reset it.</p>
+            <p>Don't have an account? <a href="index.php?loc=registration" title="Account Registration">Click here to register</a>.</p>
         </div>
     </div>
 </div>
