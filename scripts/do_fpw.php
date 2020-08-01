@@ -3,9 +3,10 @@ session_start();
 require 'mgstats.php';
 require 'functions.php';
 $conn = accessdb(); //open the connection to the database
-echo "Database opened.\n";
-//Determine if this file is being called to search for and send the email or reset the password.
 
+echo "Database opened.\n";
+
+//Determine if this file is being called to search for and send the email or reset the password.
 if ($_POST['email']) {
     echo "Found email address in POST.\n";
     //Find email address in database
@@ -49,6 +50,7 @@ if ($_POST['email']) {
         exit();
     }
 } elseif ($_GET['fpw']) {
+    echo "Found a token in the URL.\n";
     //Verify the token hasn't expired and update the record
     //Find email address in database and pull the token and token expiry
     try {
@@ -60,9 +62,10 @@ if ($_POST['email']) {
     }
     //Check to make sure that the token is legit. If not, return to the home page.
     if ($result) {
+        echo "Found token in the DB.\n";
         //Verify that the token hasn't expired.
         if ($result['tokenexpiry']+1800<=time()) {
-            
+            echo "The token is valid and not expired.\n";
             //Check to make sure the passwords match and are secure.
             $newPW1 = $_POST['password1'];
             $newPW2 = $_POST['password2'];
@@ -108,6 +111,7 @@ if ($_POST['email']) {
     }
 } else {
     //Arrive here if email and fpw aren't set by post.
+    echo "No email address or token.\n";
     $conn = null;
     header('url=../index.php');
     exit();
