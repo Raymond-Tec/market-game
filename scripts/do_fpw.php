@@ -47,6 +47,7 @@ if ($_POST['email']) {
         exit();
     }
 } elseif ($_GET['fpw']) {
+    echo "There's a token.<br><br>";
     //Verify the token hasn't expired and update the record
     //Find email address in database and pull the token and token expiry
     try {
@@ -59,6 +60,7 @@ if ($_POST['email']) {
     }
     //Check to make sure that the token is legit. If not, return to the home page.
     if ($result) {
+        echo "Token Found.<br><br>";
         //Verify that the token hasn't expired.
         if ($result['tokenexpiry']+1800<=time()) {
             //Check to make sure the passwords match and are secure.
