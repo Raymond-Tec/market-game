@@ -5,6 +5,7 @@ require 'functions.php';
 $conn = accessdb(); //open the connection to the database
 echo "Database opened.\n";
 //Determine if this file is being called to search for and send the email or reset the password.
+
 if ($_POST['email']) {
     echo "Found email address in POST.\n";
     //Find email address in database
@@ -18,6 +19,7 @@ if ($_POST['email']) {
 
     //If the email address exists
     if ($result){
+        echo "Found email address in the database.\n";
         $tokenTime = time(); //Get the current Unix timestamp
         $token = sha1($tokenTime.$result['email']); //Build the token
         $url = "https://raymondtec.com/market-game/index.php?loc=pwreset&fpw=".$token; //Build the URL for the email from token
@@ -37,6 +39,7 @@ if ($_POST['email']) {
         exit();
 
     } else {
+        echo "Did not find email address in the database.\n";
         //Send email stating that email address wasn't found.
         $sub = $gameName." Password Reset";
         $msg = "Someone, possibly you, attempted to reset a password using this email address. Unfortunately, there is no user account associated with this address.\n Please try a different address.";

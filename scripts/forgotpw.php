@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col">
-            <form action="scripts/do_fpw.php" class="needs-validation" id="fpwform" method="post" autocomplete="on">
+            <form action="scripts/do_fpw.php" class="needs-validation" id="fpwform" method="post" autocomplete="off">
                 <label for="username">Email Address:</label><br>
                 <input type="text" id="email" class="form-control" name="username" required autofocus><br>
                 <input type="submit" class="btn btn-primary" value="Submit">
