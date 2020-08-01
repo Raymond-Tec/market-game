@@ -90,8 +90,8 @@ if ($_POST['email']) {
             try {
                 $resetPW = $conn->prepare('UPDATE user SET password=:password, token=null, tokenexpiry=null WHERE email=:email');
                 echo $hashedPW."<br><br>";
-                echo $resetPW."<br><br>";
                 $resetPW->execute(['password'=>$hashedPW,'email'=>$result('email')]);
+                echo "SQL Executed.<br><br>";
             } catch(PDOException $e) {
                 echo "Error: ".$e->getMessage();
                 exit();
