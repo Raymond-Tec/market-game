@@ -28,7 +28,7 @@ if ($_POST['email']) {
             $setToken = $conn->prepare('UPDATE user SET token=?, tokenexpiry=? WHERE email=?');
             $setToken->execute([$token,$tokenTime,$result('email')]);
         } catch(PDOException $e) {
-            echo $sql."<br>".$e->getMessage();
+            echo "Error: ".$e->getMessage();
         }
         $resetemail = sendMail($result['email'],$sub,$msg); //Send the email
         $conn = null; //Close database connection
