@@ -62,7 +62,8 @@ if ($_POST['email']) {
     if ($result) {
         echo "Token Found.<br><br>";
         //Verify that the token hasn't expired.
-        if ($result['tokenexpiry']+1800<=time()) {
+        $tokenexpiry = $result['tokenexpiry'] + 1800;
+        if ($tokenexpiry<=time()) {
             echo "Token is not expired.<br><br>";
             //Check to make sure the passwords match and are secure.
             $newPW1 = $_POST['password1'];
