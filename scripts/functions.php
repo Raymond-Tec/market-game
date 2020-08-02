@@ -48,10 +48,10 @@ function checkAccess($group, $accessRequired) {
 }
 
 //Send emails to users
-function sendMail($uemail, $subj, $body, $sender) {
+function sendMail($uemail, $subj, $body) {
     require 'mgstats.php';
     $msg=wordwrap($body,70);
-    $optionalHeaders="From: ".$sender."@".$gameName.".com";
+    $optionalHeaders="From: admin@".$gameName.".com";
     mail($uemail,$subj,$msg,$optionalHeaders);
 }
 ?>
