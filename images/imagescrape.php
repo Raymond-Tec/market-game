@@ -1,5 +1,5 @@
 <?php
-for($x=0; $x <= 2000; $x++) {
+for($x=216; $x <= 316; $x++) {
     $ch = curl_init("https://thispersondoesnotexist.com/image");
     $filename = sprintf("%05d",$x).".jpg";
     $fp = fopen($filename, "w");
@@ -14,7 +14,7 @@ for($x=0; $x <= 2000; $x++) {
         curl_close($ch);
         fclose($fp);
         echo "Image file: ".$filename." written.<br><br>";
-        sleep(5);
+        sleep(2);
     }
 }
 ?>
