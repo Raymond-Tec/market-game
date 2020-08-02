@@ -1,19 +1,20 @@
 <?php
-for($x=0; $x <= 100; $x++) {
-    //$ch = curl_init("https://thispersondoesnotexist.com/image");
+for($x=0; $x <= 2000; $x++) {
+    $ch = curl_init("https://thispersondoesnotexist.com/image");
     $filename = sprintf("%05d",$x).".jpg";
-    echo $filename."<br>";
-    /*$fp = fopen("image.jpg", "w");
+    $fp = fopen($filename, "w");
 
     curl_setopt($ch, CURLOPT_FILE, $fp);
     curl_setopt($ch, CURLOPT_HEADER, 0);
 
     curl_exec($ch);
     if(curl_error($ch)) {
-        fwrite($fp, curl_error($ch));
+        echo curl_error($ch)."<br><br>";
+    } else {
+        curl_close($ch);
+        fclose($fp);
+        echo "Image file: ".$filename." written.<br><br>";
+        sleep(5);
     }
-    curl_close($ch);
-    fclose($fp);
-    sleep(5);*/
 }
 ?>
