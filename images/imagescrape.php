@@ -1,6 +1,9 @@
 <?php
-    $ch = curl_init("https://thispersondoesnotexist.com/image");
-    $fp = fopen("image.jpg", "w");
+for($x=0; $x <= 100; $x++) {
+    //$ch = curl_init("https://thispersondoesnotexist.com/image");
+    $filename = sprintf("%05d",$x).".jpg";
+    echo $filename."<br>";
+    /*$fp = fopen("image.jpg", "w");
 
     curl_setopt($ch, CURLOPT_FILE, $fp);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -11,4 +14,6 @@
     }
     curl_close($ch);
     fclose($fp);
+    sleep(5);*/
+}
 ?>
