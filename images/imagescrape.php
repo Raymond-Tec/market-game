@@ -1,11 +1,14 @@
 <?php
-    $handle = $curl_init();
-    $url = "https://thispersondoesnotexist.com/image";
+    $ch = "https://thispersondoesnotexist.com/image";
+    $fp = fopen("image.jpg", "w");
 
-    curl_setopt($handle, CURLOPT_URL, $url);
-    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FILE, $url);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
 
-    $output = curl_exec($handle);
-    curl_close($handle);
-    echo $output;
+    curl_exec($ch);
+    if(curl_error($ch)) {
+        fwrite($fp, curl_error($ch));
+    }
+    curl_close($ch);
+    fclose($fp);
 ?>
