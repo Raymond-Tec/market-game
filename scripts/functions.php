@@ -51,7 +51,6 @@ function checkAccess($group, $accessRequired) {
 function sendMail($uemail, $subj, $body) {
     require 'mgstats.php';
     $msg=wordwrap($body,70);
-    $optionalHeaders="From: admin@".$gameName.".com";
-    mail($uemail,$subj,$msg,$optionalHeaders);
+    mail($uemail,$subj,$msg);
 }
 ?>
