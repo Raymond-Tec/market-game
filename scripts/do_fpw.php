@@ -43,7 +43,7 @@ if ($_POST['email']) {
         $msg = "Someone, possibly you, attempted to reset a password using this email address. Unfortunately, there is no user account associated with this address.\n Please try a different address.";
         $resetemail = sendMail(strtolower($_POST['email']),$sub,$msg);
         $conn=null; //Close database connection
-        header('url=../index.php?msg=pwreset');
+        header('Location: ../index.php?msg=pwreset');
         exit();
     }
 } elseif ($_GET['fpw']) {
@@ -98,13 +98,13 @@ if ($_POST['email']) {
         } else {
             //If the token has expired, send the user to the forgot password page to try again
             $conn = null;
-            header('url=../index.php?loc=forgotpw&msg=pwtokenexpired');
+            header('Location: ../index.php?loc=forgotpw&msg=pwtokenexpired');
             exit();
         }
     } else {
         //If the token isn't legit and they somehow got here, it sends them back to the home page.
         $conn = null;
-        header('url=../index.php');
+        header('Location: ../index.php');
         exit();
     }
 } else {
