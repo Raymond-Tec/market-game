@@ -2,7 +2,7 @@
     $ch = curl_init("https://thispersondoesnotexist.com/image");
     $fp = fopen("image.jpg", "w");
 
-    curl_setopt($ch, CURLOPT_FILE, $url);
+    curl_setopt($ch, CURLOPT_FILE, $fp);
     curl_setopt($ch, CURLOPT_HEADER, 0);
 
     curl_exec($ch);
