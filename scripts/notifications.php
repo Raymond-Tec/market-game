@@ -24,6 +24,8 @@
                 echo "<span class=\"alert-success\">Password successfully reset.</span>";
             } elseif ($_GET['msg']=="pwtokenexpired") {
                 echo "<span class=\"alert-danger\">Password reset token has expired. Please enter your email again.</span>";
+            } elseif ($_GET['msg']=="badregem") {
+                echo "<span class=\"alert-danger\">Account with this email already exists, please reset your password.</span>";
             }
         ?>
         </div>
