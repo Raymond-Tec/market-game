@@ -50,6 +50,7 @@ function checkAccess($group, $accessRequired) {
 //Send emails to users
 function sendMail($uemail, $subj, $body) {
     $msg=wordwrap($body,70);
-    mail($uemail,$subj,$body);
+    $optionalHeaders="From: admin@themarketgame.com";
+    mail($uemail,$subj,$msg,$optionalHeaders);
 }
 ?>
