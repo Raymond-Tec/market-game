@@ -32,7 +32,7 @@ if ($_POST['email']) {
             echo "Error: ".$e->getMessage();
             exit();
         }
-        $resetemail = sendMail($result['email'],$sub,$msg); //Send the email
+        $resetemail = sendMail($result['email'],$sub,$msg,'forgottenpassword'); //Send the email
         $conn = null; //Close database connection
         header('Location: ../index.php?msg=pwreset');
         exit();
@@ -41,7 +41,7 @@ if ($_POST['email']) {
         //Send email stating that email address wasn't found.
         $sub = $gameName." Password Reset";
         $msg = "Someone, possibly you, attempted to reset a password using this email address. Unfortunately, there is no user account associated with this address.\n\nPlease try a different address.\n\nRequested from IP: ".$_SERVER['REMOTE_ADDR']."\n\nWith User Agent: ".$_SERVER['HTTP_USER_AGENT'];
-        $resetemail = sendMail(strtolower($_POST['email']),$sub,$msg);
+        $resetemail = sendMail(strtolower($_POST['email']),$sub,$msg,'forgottenpassword');
         $conn=null; //Close database connection
         header('Location: ../index.php?msg=pwreset');
         exit();
