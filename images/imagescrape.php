@@ -1,5 +1,5 @@
 <?php
-for($x=512; $x <= 2000; $x++) {
+for($x=1026; $x <= 2500; $x++) {
     $ch = curl_init("https://thispersondoesnotexist.com/image");
     $filename = sprintf("%05d",$x).".jpg";
     $fp = fopen($filename, "w");
@@ -13,6 +13,6 @@ for($x=512; $x <= 2000; $x++) {
     } else {
         curl_close($ch);
         fclose($fp);
-        sleep(.5);
+        sleep(2);
     }
 }
