@@ -51,7 +51,7 @@ function checkAccess($group, $accessRequired) {
 function sendMail($uemail, $subj, $body) {
     require 'mgstats.php';
     $msg=wordwrap($body,70);
-    $headers = 'From: no-reply@'.$gameName.'.com'."\r\n".'Reply-To: admin@'.$gameName.'.com'."\r\n".'X-Mailer: PHP/'.phpversion();
+    $headers = 'From: admin@'.$gameDomain.'.com'."\r\n".'Reply-To: admin@'.$gameDomain.'.com'."\r\n".'X-Mailer: PHP/'.phpversion();
     mail($uemail,$subj,$msg,$headers);
 }
 ?>
