@@ -1,5 +1,5 @@
 <?php
-    $ch = "https://thispersondoesnotexist.com/image";
+    $ch = curl_init("https://thispersondoesnotexist.com/image");
     $fp = fopen("image.jpg", "w");
 
     curl_setopt($ch, CURLOPT_FILE, $url);
