@@ -43,8 +43,6 @@ while ($userResult = $users->fetch()) {
 $options = [ 'cost' => 13, ];
 $hashedpw = password_hash($newPW1, PASSWORD_BCRYPT, $options);
 
-//You'll want to verify the email address isn't already being used. Will also need to create a forgot password page.
-
 //Finally, do the user record insert.
 try {
     $insertUser = $conn->prepare('INSERT INTO user (username, password, usergroup, email, nickname, usercreated, userlastlogin) VALUES (:username,:password,127,:email,:nickname,:usercreated,:userlastlogin)');
@@ -55,5 +53,7 @@ try {
     exit();
 } catch(PDOException $e) {
     echo $insertURL . "<br>" . $e->getMessage();
+    $conn=null;
+    exit();
 }
 ?>
