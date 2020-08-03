@@ -23,3 +23,4 @@
         </div>
     </div>
 </div>
+<?php logevent('Accessed Forgot PW Form'); ?>
