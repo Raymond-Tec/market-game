@@ -9,7 +9,8 @@ $curl = curl_init($url); //Create the session
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_HEADER, [
     'startingWords: null',
-    'X-Api-Key: 478ca5d614ed432b828833a79d2b012d'
+    'X-Api-Key: 478ca5d614ed432b828833a79d2b012d',
+    'Content-Type: application/json'
 ]);
 
 $response = curl_exec($curl);
