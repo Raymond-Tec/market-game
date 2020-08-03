@@ -22,4 +22,6 @@ for ($x=0; $x <= 1058; $x++) {
     echo $combinedFemale[$x]."<br>";
 }
 
+echo "Total Names Created: ".count($combinedFemale);
+
 ?>
