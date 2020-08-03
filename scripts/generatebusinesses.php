@@ -21,18 +21,17 @@ $busName = explode(PHP_EOL,file_get_contents('business-names.csv'));
 $totalBus = count($busName);
 
 echo "Total Business Names: ".$totalBus."<br>";
-/*
+
 //Display table of what's going to be output by this script
 for ($x=0; $x < $totalBus; $x++) {
     echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."...";
     try {
         $insertBus = $conn->prepare('INSERT INTO businesses (businessname, industryid, location_id) VALUES (:bn, :iid, :lid)');
-        $insertBot->execute(['bn' => $busName[$x], 'iid' => $naicsResult[rand(0,count($naicsResult))], 'lid' => $geoResult[rand(0,count($geoResult))]]);
+        $insertBot->execute(['bn' => $busName[$x], 'iid' => $naics[rand(0,count($naics))], 'lid' => $geo[rand(0,count($geo))]]);
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
     echo "Successful.<br>";
 }
 
-*/
 ?>
