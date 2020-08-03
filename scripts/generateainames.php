@@ -2,8 +2,7 @@
 require 'functions.php';
 require 'mgstats.php';
 
-$femaleFN = file_get_contents('popular-girls-names.csv');
-$femaleFNar = explode(" ",$femaleFN);
-echo $femaleFNar['1'];
+$femaleFN = explode("|",file_get_contents('popular-girls-names.csv'));
+echo $femaleFN['1'];
 
 ?>
