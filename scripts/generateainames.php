@@ -26,10 +26,8 @@ for ($x=0; $x <= 1057; $x++) {
     $botphoto = "femprof_(" . $photo . ").jpg";
 
     try {
-        echo "Attempting to insert: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
         $insertBot = $conn->prepare('INSERT INTO `botplayer` (`botid`, `botfirstname`, `botlastname`, `botphoto`) VALUES (:bid, :bfn, :bln, :bp');
         $insertBot->execute(['bid'=>$x,'bfn'=>$botfirstname,'bln'=>$botlastname,'bp'=>$botphoto]);
-        echo "Successfully inserted: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
     }
@@ -43,10 +41,8 @@ for ($x=0; $x <= 983; $x++) {
     $botphoto = "maleprof_(" . $photo . ").jpg";
 
     try {
-        echo "Attempting to insert: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
         $insertBot = $conn->prepare('INSERT INTO `botplayer` (`botid`, `botfirstname`, `botlastname`, `botphoto`) VALUES (:bid, :bfn, :bln, :bp');
         $insertBot->execute(['bid'=>$x,'bfn'=>$botfirstname,'bln'=>$botlastname,'bp'=>$botphoto]);
-        echo "Successfully inserted: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
     }
