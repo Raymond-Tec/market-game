@@ -3,6 +3,21 @@ session_start();
 require 'functions.php';
 require 'mgstats.php';
 
+echo "Opening database...";
+$conn=accessdb();
+echo "Successful.<br>";
+
+//Grab NAICS codes from database
+$naics = $conn->prepare('SELECT naics_id FROM naics');
+$naicsResult = $naics->execute();
+echo "Number of NAICS Codes in database: ".count($naicsResult)."<br>";
+
+//Grab geographic locations with more than 20,000 in population
+$geo = $conn->prepare('SELECT id, `population` FROM geodata WHERE `population` >= 20000');
+$geoResults = $geo->execute();
+echo "Locations with more than 20,000: ".count($geoResults)."<br>";
+
+/*
 //Import female first names into an array (4639)
 $femaleFN = explode(PHP_EOL,file_get_contents('popular-girls-names.csv'));
 
@@ -12,13 +27,9 @@ $maleFN = explode(PHP_EOL,file_get_contents('popular-boys-names.csv'));
 //Import surnames into an array (2001)
 $surnames = explode(PHP_EOL,file_get_contents('surnames.csv'));
 
-/*echo "Available Female First Names: ".count($femaleFN)."<br>";
+echo "Available Female First Names: ".count($femaleFN)."<br>";
 echo "Available Male First Names: ".count($maleFN)."<br>";
-echo "Available Surnames: ".count($surnames)."<br>";*/
-
-echo "Opening database...";
-$conn=accessdb();
-echo "Successful.<br>";
+echo "Available Surnames: ".count($surnames)."<br>";
 
 //Display table of what's going to be output by this script
 for ($x=0; $x < 1058; $x++) {
@@ -52,4 +63,5 @@ for ($x=0; $x < 984; $x++) {
         echo $e->getMessage();
     }
     echo "Successful.<br>";
-}
+}*/
+?>
