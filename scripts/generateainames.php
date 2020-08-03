@@ -12,12 +12,14 @@ $maleFN = explode(PHP_EOL,file_get_contents('popular-boys-names.csv'));
 //Import surnames into an array
 $surnames = explode(PHP_EOL,file_get_contents('surnames.csv'));
 
+echo "Female First Names: ".count($femaleFN);
+echo "Male First Names: ".count($maleFN);
+echo "Surnames: ".count($surnames);
+
 //Build Female fore and sur names into an array
-$randomFemFN = array_rand($femaleFN);
-$randomSur = array_rand($surnames);
-for ($x=0; $x <= 1058; $x++) {
-    $combinedFemale[$x] = $surnames[$randomSur[$x]].", ".$femaleFN[$randomFemFN[$x]];
+/*for ($x=0; $x <= 1058; $x++) {
+    $combinedFemale[$x] = $surnames[rand()].", ".$femaleFN[[$x]];
     echo $combinedFemale[$x]."<br>";
-}
+}*/
 
 ?>
