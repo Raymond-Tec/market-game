@@ -21,7 +21,7 @@ $conn=accessdb();
 echo "Successful.<br>";
 
 //Display table of what's going to be output by this script
-for ($x=0; $x >= 1057; $x++) {
+for ($x=0; $x < 1058; $x++) {
     $photo = $x + 1;
     $botfirstname = $femaleFN[rand(0,4638)];
     $botlastname = $surnames[rand(0,2000)];
@@ -37,7 +37,7 @@ for ($x=0; $x >= 1057; $x++) {
     echo "Successful.<br>";
 }
 
-for ($x=0; $x >= 983; $x++) {
+for ($x=0; $x < 984; $x++) {
     $photo = $x + 1;
     $botfirstname = $maleFN[rand(0,4638)];
     $botlastname = $surnames[rand(0,2000)];
