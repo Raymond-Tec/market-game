@@ -17,3 +17,4 @@
         </div>
     </div>
 </div>
+<?php logevent('Accessed password reset form.'); ?>

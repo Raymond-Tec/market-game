@@ -11,7 +11,7 @@ if (!isset($_GET['newsid'])) {
         //Query the news table for all published storeis, public only.
         $news = $conn->query('SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsstatus = \'Published\' AND newspubpriv = \'Public\'');
     }
-    //While
+    logevent('Viewed all news');
     while ($newsResult = $news->fetch()) 
     {
         $author = ret_nick($newsResult['newsauthor']);
@@ -21,6 +21,7 @@ if (!isset($_GET['newsid'])) {
         echo "<p>".$newsreturned."</p>";
     }
 } else {
+    logevent('Viewed specific news id: '.$_GET['newsid']);
     //If news ID is set in the URL, display that specific news item in full.
     $news = $conn->prepare('SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsid = ?');
     $news->execute([$_GET['newsid']]);
@@ -38,6 +39,7 @@ if (!isset($_GET['newsid'])) {
         echo "<p>".$newsResult['newstext']."</p>";
     //If the news item isn't published, or is private and user isn't logged in, send back to welcome screen.
     } else {
+        logevent('Tried to view a private news article while not logged in.');
         header('Location: index.php');
     }
 }

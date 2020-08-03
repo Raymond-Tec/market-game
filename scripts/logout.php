@@ -1,4 +1,7 @@
 <?php
+session_start();
+//Log the logout event
+logevent('Logged out');
 //Remove all session variables
 session_unset();
 //Destroy the session

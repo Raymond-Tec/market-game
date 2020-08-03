@@ -32,3 +32,4 @@
         </div>
     </div>
 </div>
+<?php logevent('Accessed news editor'); ?>

@@ -26,3 +26,4 @@
         </div>
     </div>
 </div>
+<?php logevent('Accessed account registration'); ?>
