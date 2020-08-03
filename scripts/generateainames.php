@@ -16,20 +16,21 @@ echo "Available Female First Names: ".count($femaleFN)."<br>";
 echo "Available Male First Names: ".count($maleFN)."<br>";
 echo "Available Surnames: ".count($surnames)."<br>";
 
+$conn=accessdb();
+
 //Display table of what's going to be output by this script
 for ($x=0; $x <= 1057; $x++) {
     $photo = $x + 1;
     $botfirstname = $femaleFN[rand(0,4638)];
     $botlastname = $surnames[rand(0,2000)];
-    $botphoto = "femprof_(" . $photo . ").jpg";
-    $conn = accessdb();
+    $botphoto = 'femprof_(' . $photo . ').jpg';
+    
     try {
         $insertBot = $conn->prepare('INSERT INTO `botplayer` (`botid`, `botfirstname`, `botlastname`, `botphoto`) VALUES (:bid, :bfn, :bln, :bp');
         $insertBot->execute(['bid'=>$x,'bfn'=>$botfirstname,'bln'=>$botlastname,'bp'=>$botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
     }
-    $conn=null;
 }
 
 for ($x=0; $x <= 983; $x++) {
@@ -37,13 +38,12 @@ for ($x=0; $x <= 983; $x++) {
     $botfirstname = $maleFN[rand(0,4638)];
     $botlastname = $surnames[rand(0,2000)];
     $botmoney = 10000.00;
-    $botphoto = "maleprof_(" . $photo . ").jpg";
-    $conn=accessdb();
+    $botphoto = 'maleprof_(' . $photo . ').jpg';
+
     try {
         $insertBot = $conn->prepare('INSERT INTO `botplayer` (`botid`, `botfirstname`, `botlastname`, `botphoto`) VALUES (:bid, :bfn, :bln, :bp');
         $insertBot->execute(['bid'=>$x,'bfn'=>$botfirstname,'bln'=>$botlastname,'bp'=>$botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
     }
-    $conn=null;
 }
