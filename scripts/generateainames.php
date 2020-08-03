@@ -27,9 +27,8 @@ for ($x=0; $x <= 1057; $x++) {
 
     try {
         echo "Attempting to insert: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
-        $insertFemale = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:botid, :botfirstname, :botlastname, :botphoto');
-        echo "SQL Statement: ". $insertFemale;
-        $insertFemale->execute(['botid' => $x, 'botfirstname' => $botfirstname, 'botlastname' => $botlastname, 'botphoto' => $botphoto]);
+        $insertFemale = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:bid, :bfn, :bln, :bp');
+        $insertFemale->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
         echo "Successfully inserted: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
     } catch(PDOException $e) {
         echo $insertFemale . "<br>" . $e->getMessage();
@@ -48,7 +47,6 @@ for ($x=0; $x <= 983; $x++) {
     try {
         echo "Attempting to insert: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
         $insertMale = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:botid, :botfirstname, :botlastname, :botphoto');
-
         $insertMale->execute(['botid' => $x, 'botfirstname' => $botfirstname, 'botlastname' => $botlastname, 'botphoto' => $botphoto]);
         echo "Successfully inserted: ".$x." ".$botfirstname.$botlastname." ".$botphoto."<br>";
     } catch(PDOException $e) {
