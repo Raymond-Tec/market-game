@@ -16,7 +16,7 @@ echo "Available Female First Names: ".count($femaleFN)."<br>";
 echo "Available Male First Names: ".count($maleFN)."<br>";
 echo "Available Surnames: ".count($surnames)."<br>";
 
-//Build Female fore and sur names into an array
+//Display table of what's going to be output by this script
 ?>
 <table>
     <thead>
@@ -48,7 +48,7 @@ echo "Available Surnames: ".count($surnames)."<br>";
                 echo $surnames[rand(0,2000)];
             echo "</td>";
             echo "<td>";
-                echo "femprof_(".$x+1.")";
+                echo "femprof_(" . $x+1 . ")";
             echo "</td>";
         } ?>
     </tbody>
