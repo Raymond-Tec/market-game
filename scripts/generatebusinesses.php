@@ -11,8 +11,8 @@ echo "Successful.<br>";
 $naics = $conn->query('SELECT naics_id FROM naics')->fetchAll(PDO::FETCH_NUM);
 echo "Number of NAICS Codes in database: ".count($naics)."<br>";
 
-//Grab geographic locations with more than 20,000 in population
-$geo = $conn->query('SELECT id, `population` FROM geodata WHERE `population` >= 20000')->fetchAll(PDO::FETCH_NUM);
+//Grab geographic locations with more than 10,000 in population
+$geo = $conn->query('SELECT id, `population` FROM geodata WHERE `population` >= 10000')->fetchAll(PDO::FETCH_NUM);
 echo "Locations with more than 20,000: ".count($geo)."<br>";
 
 /*
