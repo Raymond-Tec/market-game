@@ -22,6 +22,11 @@ $totalBus = count($busName);
 
 echo "Total Business Names: ".$totalBus."<br>";
 
+for ($x=0; $x < $totalBus; $x++) {
+    echo $busName[$x]."<br>";
+}
+
+/*
 //Display table of what's going to be output by this script
 for ($x=0; $x < $totalBus; $x++) {
     echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."...";
@@ -33,5 +38,5 @@ for ($x=0; $x < $totalBus; $x++) {
     }
     echo "Successful.<br>";
 }
-
+*/
 ?>
