@@ -41,6 +41,10 @@ echo "Available Surnames: ".count($surnames)."<br>";
     <tbody>
         <?php
         for ($x=0; $x <= 1057; $x++) {
+            echo "<tr>";
+            echo "<td>";
+                echo $x;
+            echo "</td>";
             echo "<td>";
                 echo $femaleFN[rand(0,4638)];
             echo "</td>";
@@ -50,6 +54,10 @@ echo "Available Surnames: ".count($surnames)."<br>";
             echo "<td>";
                 echo "femprof_(" . $x+1 . ")";
             echo "</td>";
+            echo "<td>";
+                echo "10,000.00";
+            echo "</td>";
+            echo "</tr>";
         } ?>
     </tbody>
 </table>
