@@ -16,94 +16,41 @@ echo "Available Female First Names: ".count($femaleFN)."<br>";
 echo "Available Male First Names: ".count($maleFN)."<br>";
 echo "Available Surnames: ".count($surnames)."<br>";
 
-//Display table of what's going to be output by this script
-?>
-<table>
-    <thead>
-    <tr>
-        <td>
-            ID
-        </td>
-        <td>
-            First Name
-        </td>
-        <td>
-            Last Name
-        </td>
-        <td>
-            Profile Photo
-        </td>
-        <td>
-            Money
-        </td>
-    </tr>
-    </thead>
-    <tbody>
-        <?php
-        for ($x=0; $x <= 1057; $x++) {
-            $photo = $x + 1;
-            echo "<tr>";
-            echo "<td>";
-                echo $x;
-            echo "</td>";
-            echo "<td>";
-                echo $femaleFN[rand(0,4638)];
-            echo "</td>";
-            echo "<td>";
-                echo $surnames[rand(0,2000)];
-            echo "</td>";
-            echo "<td>";
-                echo "<img src=\"../images/botprofiles/thumbs/femprof_(" . $photo . ").jpg\">";
-            echo "</td>";
-            echo "<td>";
-                echo "10,000.00";
-            echo "</td>";
-            echo "</tr>";
-        } ?>
-    </tbody>
-</table>
+$conn = accessdb();
 
-<table>
-    <thead>
-    <tr>
-        <td>
-            ID
-        </td>
-        <td>
-            First Name
-        </td>
-        <td>
-            Last Name
-        </td>
-        <td>
-            Profile Photo
-        </td>
-        <td>
-            Money
-        </td>
-    </tr>
-    </thead>
-    <tbody>
-        <?php
-        for ($x=0; $x <= 983; $x++) {
-            $photo = $x + 1;
-            echo "<tr>";
-            echo "<td>";
-                echo $x;
-            echo "</td>";
-            echo "<td>";
-                echo $maleFN[rand(0,4628)];
-            echo "</td>";
-            echo "<td>";
-                echo $surnames[rand(0,2000)];
-            echo "</td>";
-            echo "<td>";
-                echo "<img src=\"../images/botprofiles/thumbs/maleprof_(" . $photo . ").jpg\">";
-            echo "</td>";
-            echo "<td>";
-                echo "10,000.00";
-            echo "</td>";
-            echo "</tr>";
-        } ?>
-    </tbody>
-</table>
+//Display table of what's going to be output by this script
+for ($x=0; $x <= 1057; $x++) {
+    $photo = $x + 1;
+    $botfirstname = $femaleFN[rand(0,4638)];
+    $botlastname = $surnames[rand(0,2000)];
+    $botmoney = 10000.00;
+    $botphoto = "femprof_(" . $photo . ").jpg";
+
+    try {
+        $insertFemale = $conn->prepare('INSERT INTO botplayer (botfirstname, botlastname, botmoney, botphoto) VALUES (:botfirstname,:botlastname,:botmoney,:botphoto');
+        $insertFemale->execute(['botfirstname'=>$botfirstname,'botlastname'=>$botlastname,'botmoney'=>$botmoney,'botphoto'=>$botphoto]);
+        echo "Successfully inserted: ".$botfirstname.$botlastname." ".$botmoney." ".$botphoto."<br>";
+    } catch(PDOException $e) {
+        echo $insertFemale . "<br>" . $e->getMessage();
+        $conn = null;
+        exit();
+    }
+}
+
+for ($x=0; $x <= 983; $x++) {
+    $photo = $x + 1;
+    $botfirstname = $maleFN[rand(0,4638)];
+    $botlastname = $surnames[rand(0,2000)];
+    $botmoney = 10000.00;
+    $botphoto = "maleprof_(" . $photo . ").jpg";
+
+    try {
+        $insertMale = $conn->prepare('INSERT INTO botplayer (botfirstname, botlastname, botmoney, botphoto) VALUES (:botfirstname,:botlastname,:botmoney,:botphoto');
+        $insertMale->execute(['botfirstname'=>$botfirstname,'botlastname'=>$botlastname,'botmoney'=>$botmoney,'botphoto'=>$botphoto]);
+        echo "Successfully inserted: ".$botfirstname.$botlastname." ".$botmoney." ".$botphoto."<br>";
+    } catch(PDOException $e) {
+        echo $insertMale . "<br>" . $e->getMessage();
+        $conn = null;
+        exit();
+    }
+}
