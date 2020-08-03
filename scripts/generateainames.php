@@ -27,8 +27,8 @@ for ($x=0; $x <= 1057; $x++) {
     $botphoto = "femprof_(" . $photo . ").jpg";
 
     try {
-        $insertFemale = $conn->prepare('INSERT INTO botplayer (botfirstname, botlastname, botmoney, botphoto) VALUES (:botfirstname, :botlastname, :botmoney, :botphoto');
-        $insertFemale->execute(['botfirstname'=>$botfirstname,'botlastname'=>$botlastname,'botmoney'=>$botmoney,'botphoto'=>$botphoto]);
+        $insertFemale = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botmoney, botphoto) VALUES (:botid, :botfirstname, :botlastname, :botmoney, :botphoto');
+        $insertFemale->execute(['botid' => $x, 'botfirstname' => $botfirstname,'botlastname' => $botlastname,'botmoney' => $botmoney,'botphoto' => $botphoto]);
         echo "Successfully inserted: ".$botfirstname.$botlastname." ".$botmoney." ".$botphoto."<br>";
     } catch(PDOException $e) {
         echo $insertFemale . "<br>" . $e->getMessage();
@@ -45,8 +45,8 @@ for ($x=0; $x <= 983; $x++) {
     $botphoto = "maleprof_(" . $photo . ").jpg";
 
     try {
-        $insertMale = $conn->prepare('INSERT INTO botplayer (botfirstname, botlastname, botmoney, botphoto) VALUES (:botfirstname,:botlastname,:botmoney,:botphoto');
-        $insertMale->execute(['botfirstname'=>$botfirstname,'botlastname'=>$botlastname,'botmoney'=>$botmoney,'botphoto'=>$botphoto]);
+        $insertMale = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botmoney, botphoto) VALUES (:botid, :botfirstname, :botlastname, :botmoney, :botphoto');
+        $insertMale->execute(['botid' => $x, 'botfirstname' => $botfirstname,'botlastname' => $botlastname,'botmoney' => $botmoney,'botphoto' => $botphoto]);
         echo "Successfully inserted: ".$botfirstname.$botlastname." ".$botmoney." ".$botphoto."<br>";
     } catch(PDOException $e) {
         echo $insertMale . "<br>" . $e->getMessage();
