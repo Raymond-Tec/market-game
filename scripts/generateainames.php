@@ -27,9 +27,11 @@ for ($x=0; $x <= 1057; $x++) {
     $botphoto = "femprof_(" . $photo . ").jpg";
 
     try {
+        echo "Attempting to insert: ".$botid." ".$botfirstname.$botlastname." ".$botmoney." ".$botphoto."<br>";
         $insertFemale = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botmoney, botphoto) VALUES (:botid, :botfirstname, :botlastname, :botmoney, :botphoto');
+        echo "SQL Statement: ". $insertFemale;
         $insertFemale->execute(['botid' => $x, 'botfirstname' => $botfirstname,'botlastname' => $botlastname,'botmoney' => $botmoney,'botphoto' => $botphoto]);
-        echo "Successfully inserted: ".$botfirstname.$botlastname." ".$botmoney." ".$botphoto."<br>";
+        echo "Successfully inserted: ".$botid." ".$botfirstname.$botlastname." ".$botmoney." ".$botphoto."<br>";
     } catch(PDOException $e) {
         echo $insertFemale . "<br>" . $e->getMessage();
         $conn = null;
