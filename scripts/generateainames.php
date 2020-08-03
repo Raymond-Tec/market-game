@@ -3,25 +3,53 @@ session_start();
 require 'functions.php';
 require 'mgstats.php';
 
-//Import female first names into an array
+//Import female first names into an array (4639)
 $femaleFN = explode(PHP_EOL,file_get_contents('popular-girls-names.csv'));
 
-//Import male first names into an array
+//Import male first names into an array (4629)
 $maleFN = explode(PHP_EOL,file_get_contents('popular-boys-names.csv'));
 
-//Import surnames into an array
+//Import surnames into an array (2001)
 $surnames = explode(PHP_EOL,file_get_contents('surnames.csv'));
 
-echo "Female First Names: ".count($femaleFN)."<br>";
-echo "Male First Names: ".count($maleFN)."<br>";
-echo "Surnames: ".count($surnames)."<br>";
+echo "Available Female First Names: ".count($femaleFN)."<br>";
+echo "Available Male First Names: ".count($maleFN)."<br>";
+echo "Available Surnames: ".count($surnames)."<br>";
 
 //Build Female fore and sur names into an array
-for ($x=0; $x <= 1058; $x++) {
-    $combinedFemale[$x] = $surnames[rand(0,2001)].", ".$femaleFN[rand(0,4639)];
-    echo $combinedFemale[$x]."<br>";
-}
-
-echo "Total Names Created: ".count($combinedFemale);
-
 ?>
+<table>
+    <thead>
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            First Name
+        </td>
+        <td>
+            Last Name
+        </td>
+        <td>
+            Profile Photo
+        </td>
+        <td>
+            Money
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+        <?php
+        for ($x=0; $x <= 1057; $x++) {
+            echo "<td>";
+                echo $femaleFN[rand(0,4638)];
+            echo "</td>";
+            echo "<td>";
+                echo $surnames[rand(0,2000)];
+            echo "</td>";
+            echo "<td>";
+                echo "femprof_(".$x+1.")";
+            echo "</td>";
+        } ?>
+    </tbody>
+</table>
