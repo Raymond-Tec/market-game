@@ -62,3 +62,48 @@ echo "Available Surnames: ".count($surnames)."<br>";
         } ?>
     </tbody>
 </table>
+
+<table>
+    <thead>
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            First Name
+        </td>
+        <td>
+            Last Name
+        </td>
+        <td>
+            Profile Photo
+        </td>
+        <td>
+            Money
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+        <?php
+        for ($x=0; $x <= 984; $x++) {
+            $photo = $x + 1;
+            echo "<tr>";
+            echo "<td>";
+                echo $x;
+            echo "</td>";
+            echo "<td>";
+                echo $maleFN[rand(0,4628)];
+            echo "</td>";
+            echo "<td>";
+                echo $surnames[rand(0,2000)];
+            echo "</td>";
+            echo "<td>";
+                echo "<img src=\"../images/botprofiles/thumbs/maleprof_(" . $photo . ").jpg\">";
+            echo "</td>";
+            echo "<td>";
+                echo "10,000.00";
+            echo "</td>";
+            echo "</tr>";
+        } ?>
+    </tbody>
+</table>
