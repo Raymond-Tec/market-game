@@ -27,11 +27,11 @@ for ($x=0; $x <= 1057; $x++) {
     
     try {
         $insertBot = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:bid, :bfn, :bln, :bp)');
-        echo "Inserting: ".$insertBot."...";
-        $insertBot->execute(['bid'=>$x,'bfn'=>$botfirstname,'bln'=>$botlastname,'bp'=>$botphoto]);
-        echo "Successful.<br>";
+        $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
+        $conn=null;
+        exit();
     }
 }
 
@@ -44,10 +44,10 @@ for ($x=0; $x <= 983; $x++) {
 
     try {
         $insertBot = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:bid, :bfn, :bln, :bp)');
-        echo "Inserting: ".$insertBot."...";
-        $insertBot->execute(['bid'=>$x,'bfn'=>$botfirstname,'bln'=>$botlastname,'bp'=>$botphoto]);
-        echo "Successful.<br>";
+        $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
+        $conn=null;
+        exit();
     }
 }
