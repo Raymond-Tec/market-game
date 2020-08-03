@@ -12,6 +12,8 @@ $maleFN = explode(PHP_EOL,file_get_contents('popular-boys-names.csv'));
 $surnames = explode(PHP_EOL,file_get_contents('surnames.csv'));
 
 //Build Female fore and sur names into an array
-
+for ($x=0; $x <= 1058; $x++) {
+    
+}
 
 ?>
