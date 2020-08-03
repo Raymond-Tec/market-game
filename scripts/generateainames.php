@@ -53,7 +53,7 @@ echo "Available Surnames: ".count($surnames)."<br>";
                 echo $surnames[rand(0,2000)];
             echo "</td>";
             echo "<td>";
-                echo "femprof_(" . $photo . ")";
+                echo "<img src=\"../images/botprofiles/thumbs/femprof_(" . $photo . ").jpg\">";
             echo "</td>";
             echo "<td>";
                 echo "10,000.00";
