@@ -23,6 +23,7 @@ $totalBus = count($busName);
 echo "Total Business Names: ".$totalBus."<br>";
 
 for ($x=0; $x < $totalBus; $x++) {
+    str_replace('"',"",$busName[$x]);
     echo $busName[$x]."<br>";
 }
 
