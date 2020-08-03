@@ -20,7 +20,7 @@ if ($_POST['email']) {
     if ($result){
         $tokenTime = time(); //Get the current Unix timestamp
         $token = sha1($tokenTime.$result['email']); //Build the token
-        $url = "https://raymondtec.com/market-game/index.php?loc=pwreset&fpw=".$token; //Build the URL for the email from token
+        $url = "https://".$gamePath."/index.php?loc=pwreset&fpw=".$token; //Build the URL for the email from token
         $sub = $gameName." Password Reset";
         $msg = $result['nickname'].",\nSomeone, possibly you, attempted to reset your password for your account. If it was you, please visit the following link within 30 minutes:\n".$url."\n\nIf it wasn't you, you may disregard this email.\n\nRequested from IP: ".$_SERVER['REMOTE_ADDR']."\n\nWith User Agent: ".$_SERVER['HTTP_USER_AGENT'];
 
