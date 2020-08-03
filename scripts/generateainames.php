@@ -30,8 +30,6 @@ for ($x=0; $x <= 1057; $x++) {
         $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
-        $conn=null;
-        exit();
     }
 }
 
@@ -47,7 +45,5 @@ for ($x=0; $x <= 983; $x++) {
         $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
-        $conn=null;
-        exit();
     }
 }
