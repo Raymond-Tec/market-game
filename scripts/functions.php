@@ -10,6 +10,10 @@ function accessdb() {
     return $conn;
 }
 
+//Create a function to send all actions to a log file
+//Format log: <datetime> <-Provided by function Passed to function -> <remote_IP> <remote_useragent> <action> <username if logged in>
+//Create a separate php file to load all logs into database every 24 hours.
+
 /*Returns the first $wordsreturned out of $string. If string contains fewer words than $wordsreturned, the entire string 
 is returned. newsID and newstitle added by RT to create More link.*/
 function shorten_newsString($string, $wordsreturned, $newsid, $newstitle) {
