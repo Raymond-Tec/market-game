@@ -18,7 +18,7 @@ function logevent($action) {
     //Pull the username or enter "Not Logged In"
     if($_SESSION['username']) { $remoteUN = $_SESSION['username']; } else { $remoteUN = "Not Logged In"; } 
     $logTime = date('Y-m-d H:i:s'); //Establish Log time.
-    $sid = session_id();
+    $sid = session_id(); //Session ID
     $entry = $logTime."|".$action."|".$_SERVER['REMOTE_ADDR']."|".$_SERVER['HTTP_USER_AGENT']."|".$remoteUN."|".$sid."\n"; //Create the variable for log entry
     $filename = "logs/".date('Y-m-d').".log"; //Build filename, changes by day.
     file_put_contents($filename,$entry, FILE_APPEND); //Appends the entry to the log file.
