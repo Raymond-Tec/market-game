@@ -41,6 +41,7 @@ echo "Available Surnames: ".count($surnames)."<br>";
     <tbody>
         <?php
         for ($x=0; $x <= 1057; $x++) {
+            $photo = $x + 1;
             echo "<tr>";
             echo "<td>";
                 echo $x;
@@ -52,7 +53,7 @@ echo "Available Surnames: ".count($surnames)."<br>";
                 echo $surnames[rand(0,2000)];
             echo "</td>";
             echo "<td>";
-                echo "femprof_(" . $x+1 . ")";
+                echo "femprof_(" . $photo . ")";
             echo "</td>";
             echo "<td>";
                 echo "10,000.00";
