@@ -12,14 +12,16 @@ $maleFN = explode(PHP_EOL,file_get_contents('popular-boys-names.csv'));
 //Import surnames into an array (2001)
 $surnames = explode(PHP_EOL,file_get_contents('surnames.csv'));
 
-echo "Available Female First Names: ".count($femaleFN)."<br>";
+/*echo "Available Female First Names: ".count($femaleFN)."<br>";
 echo "Available Male First Names: ".count($maleFN)."<br>";
-echo "Available Surnames: ".count($surnames)."<br>";
+echo "Available Surnames: ".count($surnames)."<br>";*/
 
+echo "Opening database...";
 $conn=accessdb();
+echo "Successful.<br>";
 
 //Display table of what's going to be output by this script
-for ($x=0; $x <= 1057; $x++) {
+for ($x=0; $x >= 1057; $x++) {
     $photo = $x + 1;
     $botfirstname = $femaleFN[rand(0,4638)];
     $botlastname = $surnames[rand(0,2000)];
@@ -35,7 +37,7 @@ for ($x=0; $x <= 1057; $x++) {
     echo "Successful.<br>";
 }
 
-for ($x=0; $x <= 983; $x++) {
+for ($x=0; $x >= 983; $x++) {
     $photo = $x + 1;
     $botfirstname = $maleFN[rand(0,4638)];
     $botlastname = $surnames[rand(0,2000)];
