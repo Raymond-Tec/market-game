@@ -10,15 +10,15 @@ function accessdb() {
     return $conn;
 }
 
-//Create a function to send all actions to a log file
-//Format log: <datetime> <remote_IP> <remote_useragent> <username if logged in> <-Provided by function Passed to function -> <action>
 //Create a separate php file to load all logs into database every 24 hours.
+
+//Log event function. Pass the action that was completed to this function, it handles the rest.
 function logevent($action) {
     require 'mgstats.php';
     //Pull the username or enter "Not Logged In"
     if($_SESSION['username']) { $remoteUN = $_SESSION['username']; } else { $remoteUN = "Not Logged In"; } 
     $logTime = date('Y-m-d H:i:s'); //Establish Log time.
-    $entry = $logTime." ".$action." ".$_SERVER['REMOTE_ADDR']." ".$_SERVER['HTTP_USER_AGENT']." ".$remoteUN; //Create the variable for log entry
+    $entry = $logTime." ".$action." ".$_SERVER['REMOTE_ADDR']." ".$_SERVER['HTTP_USER_AGENT']." ".$remoteUN."\n"; //Create the variable for log entry
     $filename = "logs/".date('Y-m-d').".log"; //Build filename, changes by day.
     file_put_contents($filename,$entry, FILE_APPEND); //Appends the entry to the log file.
     return;
