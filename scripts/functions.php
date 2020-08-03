@@ -19,8 +19,8 @@ function logevent($action) {
     if($_SESSION['username']) { $remoteUN = $_SESSION['username']; } else { $remoteUN = "Not Logged In"; } 
     $logTime = date('Y-m-d H:i:s');
     $entry = $logTime." ".$action." ".$_SERVER['REMOTE_ADDR']." ".$_SERVER['HTTP_USER_AGENT']." ".$remoteUN;
-    echo "Writing ".$entry." to ".$gamePath.'//logs//'.date('Y-m-d').'.log';
-    file_put_contents($gamePath.'/logs/'.date('Y-m-d').'.log',$entry, FILE_APPEND);
+    echo "Writing ".$entry." to logs/".date('Y-m-d').'.log';
+    file_put_contents("logs/".date('Y-m-d').".log",$entry, FILE_APPEND);
     return;
 }
 
