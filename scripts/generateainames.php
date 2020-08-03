@@ -32,7 +32,7 @@ for ($x=0; $x < 1058; $x++) {
         $insertBot = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:bid, :bfn, :bln, :bp)');
         $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
-        echo $insertBot . "<br>" . $e->getMessage();
+        echo $e->getMessage();
     }
     echo "Successful.<br>";
 }
@@ -49,7 +49,7 @@ for ($x=0; $x < 984; $x++) {
         $insertBot = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:bid, :bfn, :bln, :bp)');
         $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
-        echo $insertBot . "<br>" . $e->getMessage();
+        echo $e->getMessage();
     }
     echo "Successful.<br>";
 }
