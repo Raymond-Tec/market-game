@@ -25,12 +25,14 @@ for ($x=0; $x <= 1057; $x++) {
     $botlastname = $surnames[rand(0,2000)];
     $botphoto = 'femprof_(' . $photo . ').jpg';
     
+    echo "Inserting: ".$x." ".$botfirstname." ".$botlastname." ".$botphoto."...";
     try {
         $insertBot = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:bid, :bfn, :bln, :bp)');
         $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
     }
+    echo "Successful.<br>";
 }
 
 for ($x=0; $x <= 983; $x++) {
@@ -40,10 +42,12 @@ for ($x=0; $x <= 983; $x++) {
     $botmoney = 10000.00;
     $botphoto = 'maleprof_(' . $photo . ').jpg';
 
+    echo "Inserting: ".$x." ".$botfirstname." ".$botlastname." ".$botphoto."...";
     try {
         $insertBot = $conn->prepare('INSERT INTO botplayer (botid, botfirstname, botlastname, botphoto) VALUES (:bid, :bfn, :bln, :bp)');
         $insertBot->execute(['bid' => $x, 'bfn' => $botfirstname, 'bln' => $botlastname, 'bp' => $botphoto]);
     } catch(PDOException $e) {
         echo $insertBot . "<br>" . $e->getMessage();
     }
+    echo "Successful.<br>";
 }
