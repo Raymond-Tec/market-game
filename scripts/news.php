@@ -33,13 +33,13 @@ if (!isset($_GET['newsid'])) {
         echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
         echo "<p>".$newsResult['newstext']."</p>";
     //If news item is published and private, make sure the user is logged in.
-    } elseif ($newsResult['newspubpriv']=='Private' && isset($_SESSION['username'])) {
+    } elseif ($newsResult['newsstatus']=='Published' && $newsResult['newspubpriv']=='Private' && isset($_SESSION['username'])) {
         echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
         echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
         echo "<p>".$newsResult['newstext']."</p>";
     //If the news item isn't published, or is private and user isn't logged in, send back to welcome screen.
     } else {
-        logevent('Tried to view a private news article while not logged in.');
+        logevent('Tried to view a private, draft, or non-existent news id: '.$_GET['newsid']);
         header('Location: index.php');
     }
 }
