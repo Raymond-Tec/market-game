@@ -41,7 +41,7 @@ echo "Available Surnames: ".count($surnames)."<br>";
     <tbody>
         <?php
         for ($x=0; $x <= 1057; $x++) {
-            $photo = $x + 1;
+            $photo = "images/botprofiles/thumbs/femprof_(". $x + 1 .").jpg";
             echo "<tr>";
             echo "<td>";
                 echo $x;
@@ -53,7 +53,7 @@ echo "Available Surnames: ".count($surnames)."<br>";
                 echo $surnames[rand(0,2000)];
             echo "</td>";
             echo "<td>";
-                echo "<img src=\"../images/botprofiles/thumbs/femprof_(" . $photo . ").jpg\">";
+                echo "<img src=\"../".$photo."\">";
             echo "</td>";
             echo "<td>";
                 echo "10,000.00";
@@ -85,8 +85,8 @@ echo "Available Surnames: ".count($surnames)."<br>";
     </thead>
     <tbody>
         <?php
-        for ($x=0; $x <= 984; $x++) {
-            $photo = $x + 1;
+        for ($x=0; $x <= 983; $x++) {
+            $photo = $photo = "images/botprofiles/thumbs/maleprof_(". $x + 1 .").jpg";
             echo "<tr>";
             echo "<td>";
                 echo $x;
@@ -98,7 +98,7 @@ echo "Available Surnames: ".count($surnames)."<br>";
                 echo $surnames[rand(0,2000)];
             echo "</td>";
             echo "<td>";
-                echo "<img src=\"../images/botprofiles/thumbs/maleprof_(" . $photo . ").jpg\">";
+                echo "<img src=\"../".$photo."\">";
             echo "</td>";
             echo "<td>";
                 echo "10,000.00";
