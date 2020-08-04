@@ -8,9 +8,10 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     $bus = $conn->query('SELECT businessid, businessname, industryid, location_id FROM businesses');
     logevent('Viewed all businesses');
     $x = 0;
-    echo "Total Rows: ".count($bus);
+    
     while ($busResult = $bus->fetch()) 
     {
+        if ($x == 0) {echo "Total Rows: ".count($busResult);}
         try {
             $naics = $conn->prepare('SELECT naics_id, naics_description FROM naics WHERE naics_id = ?');
             $naics->execute([$busResult['industryid']]);
