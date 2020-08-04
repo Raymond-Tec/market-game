@@ -18,7 +18,7 @@
                         echo "<a class=\"dropdown-item\" href=\"index.php?loc=account\" alt=\"Account\">Account</a>";
                     } else {
                         echo "<a class=\"dropdown-item\" href=\"index.php?loc=registration\" alt=\"Register\">Register</a>";
-                        echo "<a class=\"nav-link\" href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
+                        echo "<a class=\"dropdown-item\" href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
                     }?>
                 </div>
             </li>
