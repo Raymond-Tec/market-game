@@ -6,14 +6,12 @@ $conn=accessdb();
 if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     logevent('Viewed all businesses'); //Log the event
     
-    $totRecs = $conn->query('SELECT COUNT(*) FROM businesses')->fetchColumn();
-    $totPages = round($totRecs/25,0);
-    if (!$_GET['pageid']) {echo "Page ID: ".$pageid."<br>"; }
-    ?>
+    $totPages = round($conn->query('SELECT COUNT(*) FROM businesses')->fetchColumn(),0);
+    $formAction = "do_copage.php";
+    if (!$_GET['pageid']) { $pageID = 1; }
 
+    coPage( $pageID, $totPages, $formAction );
 
-
-    <?php
     if (!isset($_GET['pageid'])) {
         $bus = $conn->query('SELECT businessid, businessname, industryid, location_id FROM businesses');
         

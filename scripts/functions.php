@@ -95,4 +95,20 @@ function get_gravatar( $email, $s = 75, $d = 'mp', $r = 'g', $img = TRUE, $atts 
     return $url;
 }
 
+//Funciton to create the pagination
+function coPage( $pageID, $totalPages, $formAction ) {
+    ?>
+    <div class="row">
+        <div class="col">
+            <form action="scripts/<?php echo $formAction; ?>" class="needs-validation" id="pageform" method="post" autocomplete="off">
+            <label for="page number">Page Number:</label><input type="text" id="pagenum" class="form-control" name="pagenum" value="<?php echo $pageID; ?>"> of <?php echo $totalPages; ?> Pages
+        </div>
+        <div class="col">
+            <label for="search">Search Business Names:</label><input type="text" id="search" class="form-control" name="search"><input type="submit" class="btn btn-primary" value="Submit"></form>
+        </div>
+    </div>
+    
+    <?php
+    return;
+}
 ?>
