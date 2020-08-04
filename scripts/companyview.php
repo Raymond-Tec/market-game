@@ -10,7 +10,7 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     $formAction = "do_copage.php";
     if (!$_GET['pageid']) { $pageID = 1; }
 
-    coPage( $pageID, $totPages, $formAction );
+    pagination( $pageID, $totPages, $formAction );
 
     if (!isset($_GET['pageid'])) {
         $bus = $conn->query('SELECT businessid, businessname, industryid, location_id FROM businesses');
@@ -68,7 +68,7 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
         }
 
     }
-    coPage( $pageID, $totPages, $formAction );
+    pagination( $pageID, $totPages, $formAction );
 } elseif (isset($_GET['busid']) && isset($_SESSION['username'])) { //If business ID is set in the URL, do this
     logevent('Viewed specific business id: '.$_GET['busid']);
     $bus = $conn->prepare('SELECT businessid, businessname, industryid, location_id FROM businesses WHERE businessid = ?');
