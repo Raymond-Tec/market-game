@@ -26,6 +26,7 @@ for ($x=0; $x < $totDupes-1; $x++) {
     for ($y=1; $y > $curDupes-1; $y++) {
         try {
             $delDupe = $conn->query('DELETE FROM businesses WHERE businessid = \''.$findDupe[$y]['businessid'].'\'')->execute();
+            echo $delDupe;
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
