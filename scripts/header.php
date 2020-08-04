@@ -2,7 +2,7 @@
     <div class="col">
         <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
     </div>
-    <div class="col text-right">
+    <div class="col">
         <?php include 'navigation.php'; ?>
     </div>
 </div>
