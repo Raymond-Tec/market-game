@@ -9,12 +9,12 @@ echo "Successful.<br>";
 
 //Grab NAICS codes from database
 $naics = $conn->query('SELECT naics_id FROM naics');
-$naics = $naics->execute(PDO::FETCH_NUM);
-echo "Number of NAICS Codes in database: ".count($naics)."<br>"."Random Industry: ".$naics[rand(0,count($naics))]."<br>";
+$naics = $naics->execute();
+echo "Number of NAICS Codes in database: ".count($naics)." Random Industry: ".$naics[rand(0,count($naics))]."<br>";
 
 //Grab geographic locations with more than 5,000 in population
 $geo = $conn->query('SELECT id, `population` FROM geodata WHERE `population` >= 5000')->fetchAll(PDO::FETCH_ASSOC);
-echo "Locations with more than 5,000: ".count($geo)."<br>"."Random Location: ".$geo[rand(0,count($geo))]."<br>";
+echo "Locations with more than 5,000: ".count($geo)." Random Location: ".$geo[rand(0,count($geo))]."<br>";
 
 
 //Import business names into an array and count total number of business names.
