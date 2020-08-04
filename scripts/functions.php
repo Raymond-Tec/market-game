@@ -98,9 +98,9 @@ function get_gravatar( $email, $s = 75, $d = 'mp', $r = 'g', $img = TRUE, $atts 
 //Funciton to create the pagination
 function coPage( $pageID, $totalPages, $formAction ) {
     ?>
+    <form action="scripts/<?php echo $formAction; ?>" class="form-inline" id="pageform" method="post" autocomplete="off">
     <div class="row">
         <div class="col">
-            <form action="scripts/<?php echo $formAction; ?>" class="form-inline" id="pageform" method="post" autocomplete="off">
             <label for="page number">Page Number:</label><input type="text" id="pagenum" class="form-control" name="pagenum" size="4" value="<?php echo $pageID; ?>"> of <?php echo $totalPages; ?> Pages
         </div>
         <div class="col">
