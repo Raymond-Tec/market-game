@@ -5,13 +5,14 @@ $conn=accessdb();
 //If business ID is not set in the URL, display all businesses
 if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     //Query the news table for all published storeis, public only.
+    $totRecs = $conn->query('SELECT COUNT(*) FROM businesses')->execute();
+    echo "Total Records: ".$totRecs."<br>";
     $bus = $conn->query('SELECT businessid, businessname, industryid, location_id FROM businesses');
     logevent('Viewed all businesses');
     $x = 0;
     
     while ($busResult = $bus->fetch()) 
     {
-        if ($x == 0) {echo "Total Rows: ".count($busResult);}
         try {
             $naics = $conn->prepare('SELECT naics_id, naics_description FROM naics WHERE naics_id = ?');
             $naics->execute([$busResult['industryid']]);
