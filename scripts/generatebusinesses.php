@@ -33,7 +33,7 @@ for ($x=0; $x < $totalBus; $x++) {
     echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."Industry ID: ".$naics[$naicsRand]." Geographic ID: ".$geo[$geoRand][id]."...";
     try {
         $insertBus = $conn->prepare('INSERT INTO businesses (businessname, industryid, location_id) VALUES (:bn, :iid, :lid)');
-        $insertBot->execute(['bn' => $busName[$x], 'iid' => $naics[$naicsRand], 'lid' => $geo[$geoRand][id]]);
+        $insertBus->execute(['bn' => $busName[$x], 'iid' => $naics[$naicsRand], 'lid' => $geo[$geoRand][id]]);
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
