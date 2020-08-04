@@ -22,14 +22,12 @@ for ($x=0; $x < $totDupes-1; $x++) {
         echo $e->getMessage();
     }
 
-    echo "Duplicate id: ".$foundDupe[1]['businessid']."<br>";
-/*
     for ($y=1; $y < $dupes[$x]['COUNT(businessname']; $y++) {
         try {
             $delDupe = $conn->query('DELETE FROM businesses WHERE businessid = \''.$findDupe[$y]['businessid'].'\'')->execute();
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
-    }*/
+    }
 }
 ?>
