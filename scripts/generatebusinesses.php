@@ -9,7 +9,7 @@ echo "Successful.<br><br>";
 
 //Grab NAICS codes from database
 try {
-    $naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_BOTH);
+    $naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_COLUMN);
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
