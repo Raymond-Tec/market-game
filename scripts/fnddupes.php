@@ -17,13 +17,12 @@ for ($x=0; $x < $totDupes-1; $x++) {
     try {
         $findDupe = $conn->prepare('SELECT * FROM businesses WHERE businessname = ?');
         $findDupe->execute([$dupes[$x]['businessname']]);
-        
+        $foundDupe = $findDupe->fetchAll(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
     
-    $y = 0;
-    while ($foundDupe = $findDupe->fetchAll(PDO::FETCH_ASSOC)) {
+    for ($y=0; $y < Count($foundDupe); $y++) {
         if ($y == 0) {
             echo "First Record...Skipped.<br>";
         } else {
@@ -35,8 +34,7 @@ for ($x=0; $x < $totDupes-1; $x++) {
                 echo $e->getMessage();
             }
             echo "Success.<br>";
-        }
-        $y++;            
+        }          
     }
 }
 ?>
