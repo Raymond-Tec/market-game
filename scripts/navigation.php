@@ -5,6 +5,14 @@
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            <?php if (isset($_SESSION['username'])) {?>>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardropgame" data-toggle="dropdown">Game</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="index.php?loc=companyview" alt="View Companies">Companies</a>
+                    </div>
+                </li>
+            <?php } ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Site</a>
                 <div class="dropdown-menu">
