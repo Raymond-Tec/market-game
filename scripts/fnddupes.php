@@ -14,7 +14,7 @@ $totDupes = count($dupes);
 
 echo $dupes[0]['businessname']." ".$dupes[0]['COUNT(businessname)'];
 try {
-    $findDupe = $conn->query('SELECT * FROM businesses WHERE businessname = \"'.$dupes[0]['businessname'].'\"')->fetchAll(PDO::FETCH_ASSOC);
+    $findDupe = $conn->query('SELECT * FROM businesses WHERE businessname = \''.$dupes[0]['businessname'].'\'')->fetchAll(PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
