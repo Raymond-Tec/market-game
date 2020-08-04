@@ -8,11 +8,11 @@ $conn=accessdb();
 echo "Successful.<br>";
 
 //Grab NAICS codes from database
-$naics = $conn->query('SELECT naics_id FROM naics')->fetch(PDO::FETCH_NUM);
+$naics = $conn->query('SELECT naics_id FROM naics')->fetchAll(PDO::FETCH_ASSOC);
 echo "Number of NAICS Codes in database: ".count($naics)."<br>"."Random Industry: ".$naics[3]."<br>";
 
 //Grab geographic locations with more than 5,000 in population
-$geo = $conn->query('SELECT id, `population` FROM geodata WHERE `population` >= 5000')->fetch(PDO::FETCH_NUM);
+$geo = $conn->query('SELECT id, `population` FROM geodata WHERE `population` >= 5000')->fetchAll(PDO::FETCH_ASSOC);
 echo "Locations with more than 5,000: ".count($geo)."<br>"."Random Location: ".$geo[rand(0,count($geo))]."<br>";
 
 
