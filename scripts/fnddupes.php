@@ -20,7 +20,7 @@ for ($x=0; $x < $totDupes-1; $x++) {
         echo $e->getMessage();
     }
 
-    echo "Deleting ". $x ." of ".$totDupes.". Record: ".$dupes[$x]['businessname']."<br>";
+    echo "Deleting ". $x ." of ".$totDupes.". Record: ".$dupes[$x]['businessname']." Duplicates: ".$dupes[$x]['COUNT(businessname']."<br>";
     $curDupes = count($findDupe);
 
     for ($y=1; $y > $curDupes-1; $y++) {
