@@ -12,14 +12,18 @@ try {
 }
 $totDupes = count($dupes);
 
-echo $dupes[0]['businessname']." ".$dupes[0]['COUNT(businessname)'];
+echo $dupes[0]['businessname']." ".$dupes[0]['COUNT(businessname)']."<br>";
 try {
     $findDupe = $conn->query('SELECT * FROM businesses WHERE businessname = \''.$dupes[0]['businessname'].'\'')->fetchAll(PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
 
-echo count($findDupe);
+try {
+    $delDupe = $conn->query('DELETE FROM businesses WHERE businessid = \''.$findDupe[1]['businessid'].'\'')->execute();
+} catch(PDOException $e) {
+    echo $e->getMessage();
+}
 
 /*for ($x=0; $x > $totDupes-1; $x++) {
 
