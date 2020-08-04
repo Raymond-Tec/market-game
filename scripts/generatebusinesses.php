@@ -8,20 +8,12 @@ $conn=accessdb();
 echo "Successful.<br><br>";
 
 //Grab NAICS codes from database
-try {
-    $naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_COLUMN);
-} catch(PDOException $e) {
-    echo $e->getMessage();
-}
-
-$naicsCount = count($naics);
-$naicsRand = rand(0,count($naics));
-echo "Number of NAICS Codes in database: ".$naicsCount." Random Industry: ".$naics[$naicsRand]."<br><br>";
+$naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_COLUMN);
+echo "Number of NAICS Codes in database: ".count($naics)." Random Industry: ".$naics[rand(0,count($naics))]."<br><br>";
 
 //Grab geographic locations with more than 5,000 in population
 $geo = $conn->query('SELECT id, `population` FROM geodata WHERE `population` >= 5000')->fetchAll(PDO::FETCH_ASSOC);
-echo "Locations with more than 5,000: ".count($geo)." Random Location: ".$geo[rand(0,count($geo))]."<br>";
-var_dump($geo);
+echo "Locations with more than 5,000: ".count($geo)." Random Location: ".$geo[rand(0,count($geo))][id]."<br>";
 
 //Import business names into an array and count total number of business names.
 $busName = explode(PHP_EOL,file_get_contents('business-names.csv'));
