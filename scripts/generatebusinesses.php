@@ -8,7 +8,12 @@ $conn=accessdb();
 echo "Successful.<br><br>";
 
 //Grab NAICS codes from database
-$naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_BOTH);
+try {
+    $naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_BOTH);
+} catch(PDOException $e) {
+    echo $e->getMessage();
+}
+
 $naicsCount = count($naics);
 $naicsRand = rand(0,count($naics));
 echo "Number of NAICS Codes in database: ".$naicsCount." Random Industry: ".$naics[$naicsRand]."<br><br>";
