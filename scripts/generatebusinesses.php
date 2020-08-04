@@ -25,19 +25,19 @@ echo "Total Business Names: ".$totalBus."<br>";
 for ($x=0; $x < $totalBus; $x++) {
     $busName[$x] = str_replace('"',"",$busName[$x]);
 }
-/*
-//Display table of what's going to be output by this script
+
+//Insert into the businesses table
 for ($x=0; $x < $totalBus; $x++) {
     $naicsRand = rand(0,count($naics));
     $geoRand = rand(0,count($geo));
     echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."Industry ID: ".$naics[$naicsRand]." Geographic ID: ".$geo[$geoRand]."...";
     try {
         $insertBus = $conn->prepare('INSERT INTO businesses (businessname, industryid, location_id) VALUES (:bn, :iid, :lid)');
-        $insertBot->execute(['bn' => $busName[$x], 'iid' => $naics[$naicsRand], 'lid' => $geo[$geoRand]]);
+        $insertBot->execute(['bn' => $busName[$x], 'iid' => $naics[$naicsRand], 'lid' => $geo[$geoRand][id]]);
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
     echo "Successful.<br>";
 }
-*/
+
 ?>
