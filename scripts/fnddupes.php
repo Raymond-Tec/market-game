@@ -23,6 +23,7 @@ for ($x=0; $x < $totDupes-1; $x++) {
     }
 
     for ($y=1; $y < $dupes[$x]['COUNT(businessname']; $y++) {
+        echo "Deleting ".$foundDupe[$y]['businessname']." with ID: ".$foundDupe[$y]['businessid']."<br>";
         try {
             $delDupe = $conn->prepare('DELETE FROM businesses WHERE businessid = ?');
             $delDupe->execute([$foundDupe[$y]['businessid']]);
