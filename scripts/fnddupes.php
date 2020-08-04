@@ -15,7 +15,9 @@ echo "Total Duplicates Found: ".$totDupes."<br><br>";
 
 for ($x=0; $x < $totDupes-1; $x++) {
     try {
-        $findDupe = $conn->query('SELECT * FROM businesses WHERE businessname = \''.$dupes[$x]['businessname'].'\'')->fetchAll(PDO::FETCH_ASSOC);
+        $findDupe = $conn->prepare('SELECT * FROM businesses WHERE businessname = :bn');
+        $findDupe->bindParam(':bn',$dupes[$x]['businessname']);
+        $foundDupe->execute(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
