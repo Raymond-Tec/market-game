@@ -22,8 +22,8 @@
                         if ($_SESSION['usergroup']==0) {
                             echo "<a class=\"dropdown-item\" href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a>";
                         } 
-                        echo "<a class=\"dropdown-item\" href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a>";
                         echo "<a class=\"dropdown-item\" href=\"index.php?loc=account\" alt=\"Account\">Account</a>";
+                        echo "<a class=\"dropdown-item\" href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a>";
                     } else {
                         echo "<a class=\"dropdown-item\" href=\"index.php?loc=registration\" alt=\"Register\">Register</a>";
                         echo "<a class=\"dropdown-item\" href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
