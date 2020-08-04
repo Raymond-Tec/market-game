@@ -8,7 +8,7 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     
     $totRecs = $conn->query('SELECT COUNT(*) FROM businesses')->fetchColumn();
     $totPages = round($totRecs/25,0);
-    echo "Page ID: ".$_GET['pageid']."<br>";
+    if (!$_GET['pageid']) {echo "Page ID: ".$pageid."<br>"; }
     ?>
 
 
