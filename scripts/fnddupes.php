@@ -10,5 +10,5 @@ try {
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
-echo $dupes[0][businessname];
+echo $dupes[0][businessname]." ".$dupes[0][count];
 ?>
