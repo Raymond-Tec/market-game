@@ -99,7 +99,7 @@ function get_gravatar( $email, $s = 75, $d = 'mp', $r = 'g', $img = TRUE, $atts 
 function coPage( $pageID, $totalPages, $formAction ) {
     ?>
     <form action="scripts/<?php echo $formAction; ?>" class="form-inline" id="pageform" method="post" autocomplete="off">
-    <div class="container bg-light">
+    <div class="container bg-light small">
         <div class="row">
             <div class="col-6">
                 <label for="page number">Page Number:</label><input type="text" id="pagenum" class="form-control" name="pagenum" size="3" value="<?php echo $pageID; ?>"> of <?php echo $totalPages; ?> Pages
