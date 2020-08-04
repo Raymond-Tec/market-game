@@ -15,19 +15,21 @@ echo "Total Duplicates Found: ".$totDupes."<br><br>";
 
 for ($x=0; $x < $totDupes-1; $x++) {
     try {
-        $findDupe = $conn->prepare('SELECT * FROM businesses WHERE businessname = :bn');
-        $findDupe->bindParam(':bn',$dupes[$x]['businessname']);
-        $foundDupe->execute(PDO::FETCH_ASSOC);
+        $findDupe = $conn->prepare('SELECT * FROM businesses WHERE businessname = ?');
+        $findDupe->execute([$dupes[$x]['businessname']]);
+        $foundDupe = $findDupe->fetchAll(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
 
+    echo "Duplicate id: ".$foundDupe[1]['businessid']."<br>";
+/*
     for ($y=1; $y < $dupes[$x]['COUNT(businessname']; $y++) {
         try {
             $delDupe = $conn->query('DELETE FROM businesses WHERE businessid = \''.$findDupe[$y]['businessid'].'\'')->execute();
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
-    }
+    }*/
 }
 ?>
