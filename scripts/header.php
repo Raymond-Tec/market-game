@@ -1,3 +1,4 @@
+<?php include 'notifications.php' ?>
 <div class="row text-center">
     <div class="col-10">
         <h1><a href="index.php" alt="<?php echo $gameName?>"><?php echo $gameName; ?></a></h1> 
@@ -6,4 +7,3 @@
         <?php include 'navigation.php'; ?>
     </div>
 </div>
-<?php include 'notifications.php' ?>
