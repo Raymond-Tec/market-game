@@ -22,22 +22,24 @@ $totalBus = count($busName);
 
 echo "Total Business Names: ".$totalBus."<br>";
 
+//There were quotes in the csv file. This gets rid of them.
 for ($x=0; $x < $totalBus; $x++) {
     $busName[$x] = str_replace('"',"",$busName[$x]);
     echo $busName[$x]."<br>";
 }
 
-/*
 //Display table of what's going to be output by this script
 for ($x=0; $x < $totalBus; $x++) {
-    echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."...";
+    $naicsRand = rand(0,count($naics));
+    $geoRand = rand(0,count($geo));
+    echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."Industry ID: ".$naicsRand." Geographic ID: ".$geoRand."...";
     try {
         $insertBus = $conn->prepare('INSERT INTO businesses (businessname, industryid, location_id) VALUES (:bn, :iid, :lid)');
-        $insertBot->execute(['bn' => $busName[$x], 'iid' => $naics[rand(0,count($naics))], 'lid' => $geo[rand(0,count($geo))]]);
+        $insertBot->execute(['bn' => $busName[$x], 'iid' => $naics[$naicsRand], 'lid' => $geo[$geoRand]]);
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
     echo "Successful.<br>";
 }
-*/
+
 ?>
