@@ -12,7 +12,7 @@ try {
 }
 $totDupes = count($dupes);
 echo "Total Duplicates Found: ".$totDupes."<br><br>";
-
+/*
 for ($x=0; $x < $totDupes-1; $x++) {
     try {
         $findDupe = $conn->prepare('SELECT * FROM businesses WHERE businessname = ?');
@@ -36,5 +36,5 @@ for ($x=0; $x < $totDupes-1; $x++) {
             echo "Success.<br>";
         }          
     }
-}
+}*/
 ?>
