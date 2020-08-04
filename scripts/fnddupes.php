@@ -21,7 +21,9 @@ for ($x=0; $x < $totDupes-1; $x++) {
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
+    echo "Deleting ".$foundDupe[0]['businessname']." with ID: ".$foundDupe[0]['businessid']."<br>";
 
+/*
     for ($y=1; $y < $dupes[$x]['COUNT(businessname']; $y++) {
         echo "Deleting ".$foundDupe[$y]['businessname']." with ID: ".$foundDupe[$y]['businessid']."<br>";
         try {
@@ -30,6 +32,6 @@ for ($x=0; $x < $totDupes-1; $x++) {
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
-    }
+    }*/
 }
 ?>
