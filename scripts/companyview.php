@@ -92,7 +92,7 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
 
     echo "<h4>".$busResult['businessname']."<br><small>";
     echo "Location: ".$locResult['city'].", ".$locResult['state_id']." | Industry: ".$naicsResult['naics_description']."</small></h4>";
-    echo "<img src=\"https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:".$locResult['lng'].",".$locResult['lat']."&zoom=14&apiKey=a716d9040aa14673934b902911a4a019\" alt=\"".$locResult['city'].", ".$locResult['state_id']."\">";
+    echo "<img src=\"https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:".$locResult['lng'].",".$locResult['lat']."&zoom=13&apiKey=a716d9040aa14673934b902911a4a019\" alt=\"".$locResult['city'].", ".$locResult['state_id']."\">";
 
 } elseif (isset($_GET['bussearch'])) {
 
