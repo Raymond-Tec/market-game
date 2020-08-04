@@ -5,12 +5,13 @@ require 'mgstats.php';
 
 echo "Opening database...";
 $conn=accessdb();
-echo "Successful.<br>";
+echo "Successful.<br><br>";
 
 //Grab NAICS codes from database
 $naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_BOTH);
 $naicsCount = count($naics);
-echo "Number of NAICS Codes in database: ".$naicsCount." Random Industry: ".$naics[rand(0,$naicsCount)]."<br>";
+$naicsRand = rand(0,count($naics));
+echo "Number of NAICS Codes in database: ".$naicsCount." Random Industry: ".$naics[$naicsRand]."<br><br>";
 
 /*
 //Grab geographic locations with more than 5,000 in population
