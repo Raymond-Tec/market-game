@@ -11,12 +11,14 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     while ($busResult = $bus->fetch()) 
     {
         try {
-            $naics = $conn->prepare('SELECT naics_id, naics_description FROM naics WHERE naics_id = ?')->execute([$busResult['industryid']]);
+            $naics = $conn->prepare('SELECT naics_id, naics_description FROM naics WHERE naics_id = ?');
+            $naicsResult = execute([$busResult['industryid']]);
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
         try {
-            $location = $conn->prepare('SELECT id, city, state_id FROM geodata WHERE id = ?')->execute([$busResult['location_id']]);
+            $location = $conn->prepare('SELECT id, city, state_id FROM geodata WHERE id = ?');
+            $locResult = execute([$busResult['location_id']]);
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
