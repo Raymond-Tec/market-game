@@ -105,7 +105,7 @@ function coPage( $pageID, $totalPages, $formAction ) {
                 <label for="page number">Page Number:</label><input type="text" id="pagenum" class="form-control" name="pagenum" size="3" value="<?php echo $pageID; ?>"> of <?php echo $totalPages; ?> Pages
             </div>
             <div class="col-6">
-                <label for="search">Search Business Names:</label><input type="text" size="15" id="search" class="form-control" name="search"><input type="submit" class="btn btn-primary" value="Submit"></form>
+                <input type="text" size="15" placeholder="Search Business Names" id="search" class="form-control" name="search"><input type="submit" class="btn btn-primary" value="Submit"></form>
             </div>
         </div>
     </div>    
