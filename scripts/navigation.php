@@ -8,7 +8,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Site</a>
                 <div class="dropdown-menu">
-                    <a class="nav-link" href="index.php?loc=news" alt="News">News</a>
+                    <a class="dropdown-item" href="index.php?loc=news" alt="News">News</a>
                     <?php
                     if (isset($_SESSION['username'])) {
                         if ($_SESSION['usergroup']==0) {
