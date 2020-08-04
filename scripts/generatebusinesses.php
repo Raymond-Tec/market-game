@@ -25,7 +25,6 @@ echo "Total Business Names: ".$totalBus."<br>";
 //There were quotes in the csv file. This gets rid of them.
 for ($x=0; $x < $totalBus; $x++) {
     $busName[$x] = str_replace('"',"",$busName[$x]);
-    echo $busName[$x]."<br>";
 }
 
 //Display table of what's going to be output by this script
