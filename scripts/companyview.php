@@ -68,30 +68,31 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
         }
 
     }
-} elseif (isset($_GET['busid']) && isset($_SESSION['username'])) {
-    /*
-    logevent('Viewed specific news id: '.$_GET['newsid']);
-    //If news ID is set in the URL, display that specific news item in full.
-    $news = $conn->prepare('SELECT newsid, newstitle, newsdate, newsauthor, newstext, newsstatus, newspubpriv FROM news WHERE newsid = ?');
-    $news->execute([$_GET['newsid']]);
-    $newsResult = $news->fetch(PDO::FETCH_ASSOC);
-    $author = ret_nick($newsResult['newsauthor']);
-    //If news item is published and public, display it.
-    if ($newsResult['newsstatus']=='Published' && $newsResult['newspubpriv']=='Public') {
-        echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
-        echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
-        echo "<p>".$newsResult['newstext']."</p>";
-    //If news item is published and private, make sure the user is logged in.
-    } elseif ($newsResult['newsstatus']=='Published' && $newsResult['newspubpriv']=='Private' && isset($_SESSION['username'])) {
-        echo "<h4><a href=\"index.php?loc=news&newsid=".$newsResult['newsid']."\" title=\"".$newsResult['newstitle']."\">".$newsResult['newstitle']."</a><br><small>";
-        echo "Published On: ".$newsResult['newsdate']." | Written by: ".$author."</small></h4>";
-        echo "<p>".$newsResult['newstext']."</p>";
-    //If the news item isn't published, or is private and user isn't logged in, send back to welcome screen.
-    } else {
-        logevent('Tried to view a private, draft, or non-existent news id: '.$_GET['newsid']);
-        header('Location: index.php');
+} elseif (isset($_GET['busid']) && isset($_SESSION['username'])) { //If business ID is set in the URL, do this
+    logevent('Viewed specific business id: '.$_GET['busid']);
+    $bus = $conn->prepare('SELECT businessid, businessname, industryid, location_id FROM businesses WHERE businessid = ?');
+    $bus->execute([$_GET['busid']]);
+    $busResult = $bus->fetch(PDO::FETCH_ASSOC);
+
+    try {
+        $naics = $conn->prepare('SELECT naics_id, naics_description FROM naics WHERE naics_id = ?');
+        $naics->execute([$busResult['industryid']]);
+        $naicsResult = $naics->fetch(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+        echo $e->getMessage();
     }
-    */
+    try {
+        $location = $conn->prepare('SELECT id, city, state_id, lat, lng FROM geodata WHERE id = ?');
+        $location->execute([$busResult['location_id']]);
+        $locResult = $location->fetch(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+
+    echo "<h4>".$busResult['businessname']."<br><small>";
+    echo "Location: ".$locResult['city'].", ".$locResult['state_id']." | Industry: ".$naicsResult['naics_description']."</small></h4>";
+    echo "<img src=\"https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:".$locResult['lat'].",".$locResult['lng']."&zoom=14&apiKey=a716d9040aa14673934b902911a4a019\" alt=\"".$locResult['city'].", ".$locResult['state_id']."\">";
+
 } elseif (isset($_GET['bussearch'])) {
 
 } else {
