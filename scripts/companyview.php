@@ -100,5 +100,6 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
+coPage( $pageID, $totPages, $formAction );
 $conn=null; //close DB connection
 ?>
