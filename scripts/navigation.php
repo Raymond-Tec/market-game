@@ -4,36 +4,24 @@
     </button>
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?loc=news" alt="News">News</a>
-            </li>
-            <li class="nav-item">
-                <?php
-                if (isset($_SESSION['username'])) {
-                    if ($_SESSION['usergroup']==0) {
-                        echo "<a class=\"nav-link\" href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a>";
-                    } ?>
-            </li>
-            <li class="nav-item">
-                <?php
-                    echo "<a class=\"nav-link\" href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a>"; ?>
-            </li>
-            <li class="nav-item">
-                <?php
-                    echo "<a class=\"nav-link\" href=\"index.php?loc=account\" alt=\"Account\">Account</a>"; ?>
-            </li>
-            <li class="nav-item">
-                <?php
-                } else {
-                    echo "<a class=\"nav-link\" href=\"index.php?loc=registration\" alt=\"Register\">Register</a>";
-                ?>
-            </li>
-            <li class="nav-item">
-                <?php
-                    echo "<a class=\"nav-link\" href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
-                }?>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Site</a>
+                <div class="dropdown-menu">
+                    <a class="nav-link" href="index.php?loc=news" alt="News">News</a>
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        if ($_SESSION['usergroup']==0) {
+                            echo "<a class=\"dropdown-item\" href=\"index.php?loc=admin\" alt=\"Admin\">Admin</a>";
+                        } 
+                        echo "<a class=\"dropdown-item\" href=\"index.php?loc=logout\" alt=\"Logout\">Logout</a>";
+                        echo "<a class=\"dropdown-item\" href=\"index.php?loc=account\" alt=\"Account\">Account</a>";
+                    } else {
+                        echo "<a class=\"dropdown-item\" href=\"index.php?loc=registration\" alt=\"Register\">Register</a>";
+                        echo "<a class=\"nav-link\" href=\"index.php?loc=loginform\" alt=\"Login\">Login</a>";
+                    }?>
+                </div>
             </li>
         </ul>
     </div>
-</div>
+</nav>
