@@ -13,7 +13,7 @@ echo "Number of NAICS Codes in database: ".count($naics)."<br>"."Random Industry
 
 //Grab geographic locations with more than 5,000 in population
 $geo = $conn->query('SELECT id, `population` FROM geodata WHERE `population` >= 5000')->fetchAll(PDO::FETCH_NUM);
-echo "Locations with more than 5,000: ".count($geo)."<br>";
+echo "Locations with more than 5,000: ".count($geo)."<br>"."Random Location: ".$geo[rand(0,count($geo))]."<br>";
 
 
 //Import business names into an array and count total number of business names.
@@ -26,7 +26,7 @@ echo "Total Business Names: ".$totalBus."<br>";
 for ($x=0; $x < $totalBus; $x++) {
     $busName[$x] = str_replace('"',"",$busName[$x]);
 }
-
+/*
 //Display table of what's going to be output by this script
 for ($x=0; $x < $totalBus; $x++) {
     $naicsRand = rand(0,count($naics));
@@ -40,5 +40,5 @@ for ($x=0; $x < $totalBus; $x++) {
     }
     echo "Successful.<br>";
 }
-
+*/
 ?>
