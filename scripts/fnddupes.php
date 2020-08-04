@@ -28,8 +28,12 @@ for ($x=0; $x < $totDupes-1; $x++) {
             echo "First Record...Skipped.<br>";
         } else {
             echo "Deleting ".$foundDupe[$y]['businessname']." with ID: ".$foundDupe[$y]['businessid']."...";
-            $delDupe = $conn->prepare('DELETE FROM businesses WHERE businessid = ?');
-            $delDupe->execute([$foundDupe[$y]['businessid']]);
+            try {
+                $delDupe = $conn->prepare('DELETE FROM businesses WHERE businessid = ?');
+                $delDupe->execute([$foundDupe[$y]['businessid']]);
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
             echo "Success.<br>";
         }
         $y++;            
