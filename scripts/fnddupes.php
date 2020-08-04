@@ -10,6 +10,6 @@ try {
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
-var_dump($dupes);
-//echo $dupes[0][businessname]." ".$dupes[0][count];
+//var_dump($dupes);
+echo $dupes[0]['businessname']." ".$dupes[0]['COUNT(businessname)'];
 ?>
