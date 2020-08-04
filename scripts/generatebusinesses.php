@@ -27,7 +27,7 @@ for ($x=0; $x < $totalBus; $x++) {
 }
 
 //Insert into the businesses table
-for ($x=0; $x < $totalBus; $x++) {
+for ($x=5818; $x < $totalBus; $x++) {
     $naicsRand = rand(0,count($naics)-1);
     $geoRand = rand(0,count($geo)-1);
     echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."Industry ID: ".$naics[$naicsRand]." Geographic ID: ".$geo[$geoRand][id]."...";
