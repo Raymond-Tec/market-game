@@ -23,7 +23,7 @@ for ($x=0; $x < $totDupes-1; $x++) {
     }
     
     $y = 0;
-    while ($foundDupe = $findDupe->fetch(PDO::FETCH_ASSOC)) {
+    while ($foundDupe = $findDupe->fetchAll(PDO::FETCH_ASSOC)) {
         if ($y == 0) {
             echo "First Record...Skipped.<br>";
         } else {
