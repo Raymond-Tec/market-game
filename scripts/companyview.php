@@ -68,6 +68,7 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
         }
 
     }
+    coPage( $pageID, $totPages, $formAction );
 } elseif (isset($_GET['busid']) && isset($_SESSION['username'])) { //If business ID is set in the URL, do this
     logevent('Viewed specific business id: '.$_GET['busid']);
     $bus = $conn->prepare('SELECT businessid, businessname, industryid, location_id FROM businesses WHERE businessid = ?');
@@ -101,6 +102,5 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
-coPage( $pageID, $totPages, $formAction );
 $conn=null; //close DB connection
 ?>
