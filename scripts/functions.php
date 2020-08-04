@@ -101,10 +101,10 @@ function coPage( $pageID, $totalPages, $formAction ) {
     <div class="row">
         <div class="col">
             <form action="scripts/<?php echo $formAction; ?>" class="form-inline" id="pageform" method="post" autocomplete="off">
-            <label for="page number">Page Number:</label><input type="text" id="pagenum" class="form-control" name="pagenum" value="<?php echo $pageID; ?>"> of <?php echo $totalPages; ?> Pages
+            <label for="page number">Page Number:</label><input type="text" id="pagenum" class="form-control" name="pagenum" size="4" value="<?php echo $pageID; ?>"> of <?php echo $totalPages; ?> Pages
         </div>
         <div class="col">
-            <label for="search">Search Business Names:</label><input type="text" id="search" class="form-control" name="search"><input type="submit" class="btn btn-primary" value="Submit"></form>
+            <label for="search">Search Business Names:</label><input type="text" size="20" id="search" class="form-control" name="search"><input type="submit" class="btn btn-primary" value="Submit"></form>
         </div>
     </div>
     
