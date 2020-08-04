@@ -8,8 +8,7 @@ $conn=accessdb();
 echo "Successful.<br>";
 
 //Grab NAICS codes from database
-$naics = $conn->query('SELECT naics_id FROM naics');
-$naics = $naics->execute();
+$naics = $conn->query('SELECT naics_id FROM naics')->fetchALL();
 echo "Number of NAICS Codes in database: ".count($naics)." Random Industry: ".$naics[rand(0,count($naics))]."<br>";
 
 //Grab geographic locations with more than 5,000 in population
