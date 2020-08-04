@@ -12,19 +12,21 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     {
         try {
             $naics = $conn->prepare('SELECT naics_id, naics_description FROM naics WHERE naics_id = ?');
-            $naicsResult->execute([$busResult['industryid']]);
+            $naics->execute([$busResult['industryid']]);
+            $naicsResult = $naics->fetch(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
         try {
             $location = $conn->prepare('SELECT id, city, state_id FROM geodata WHERE id = ?');
-            $locResult->execute([$busResult['location_id']]);
+            $location->execute([$busResult['location_id']]);
+            $locResult = $location->fetch(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
 
         echo "<h4><a href=\"index.php?loc=companyview&busid=".$busResult['businessid']."\" title=\"".$busResult['businessname']."\">".$busResult['businessname']."</a><br><small>";
-        echo "Location: ".$location['city'].", ".$location['state_id']." | Industry: ".$naics['naics_description']."</small></h4>";
+        echo "Location: ".$locResult['city'].", ".$locResult['state_id']." | Industry: ".$naicsResult['naics_description']."</small></h4>";
         if ($x == 25) { break; }
         $x++;
     }
