@@ -100,7 +100,7 @@ function coPage( $pageID, $totalPages, $formAction ) {
     ?>
     <div class="row">
         <div class="col">
-            <form action="scripts/<?php echo $formAction; ?>" class="needs-validation" id="pageform" method="post" autocomplete="off">
+            <form action="scripts/<?php echo $formAction; ?>" class="form-inline" id="pageform" method="post" autocomplete="off">
             <label for="page number">Page Number:</label><input type="text" id="pagenum" class="form-control" name="pagenum" value="<?php echo $pageID; ?>"> of <?php echo $totalPages; ?> Pages
         </div>
         <div class="col">
