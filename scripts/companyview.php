@@ -8,6 +8,7 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     $bus = $conn->query('SELECT businessid, businessname, industryid, location_id FROM businesses');
     logevent('Viewed all businesses');
     $x = 0;
+    echo "Total Rows: ".count($bus);
     while ($busResult = $bus->fetch()) 
     {
         try {
