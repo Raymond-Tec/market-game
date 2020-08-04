@@ -9,7 +9,8 @@ echo "Successful.<br>";
 
 //Grab NAICS codes from database
 $naics = $conn->query('SELECT naics_id FROM naics')->fetchALL(PDO::FETCH_BOTH);
-echo "Number of NAICS Codes in database: ".count($naics)." Random Industry: ".$naics[rand(0,count($naics))]."<br>";
+$naicsCount = count($naics);
+echo "Number of NAICS Codes in database: ".$naicsCount." Random Industry: ".$naics[rand(0,$naicsCount)]."<br>";
 
 /*
 //Grab geographic locations with more than 5,000 in population
