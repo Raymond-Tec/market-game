@@ -7,12 +7,14 @@ if (!isset($_GET['busid']) && isset($_SESSION['username'])) {
     //Query the news table for all published storeis, public only.
     $bus = $conn->query('SELECT businessid, businessname, industryid, location_id FROM businesses');
     logevent('Viewed all businesses');
-    while ($busResult = $news->fetch()) 
+    $x = 0;
+    while ($busResult = $bus->fetch()) 
     {
         $naics = $conn->query('SELECT naics_id, naics_description FROM naics WHERE naics_id = ?')->execute([$busresult['industryid']]);
         $location = $conn->query('SELECT id, city, state_id FROM geodata WHERE id = ?')->execute([$busResult['location_id']]);
         echo "<h4><a href=\"index.php?loc=companyview&busid=".$busResult['businessid']."\" title=\"".$busResult['businessname']."\">".$busResult['businessname']."</a><br><small>";
         echo "Location: ".$location['city'].", ".$location['state_id']." | Industry: ".$naics['naics_description']."</small></h4>";
+        if ($x == 25) { break; }
     }
 } elseif (isset($_GET['busid']) && isset($_SESSION['username'])) {
     /*

@@ -5,7 +5,7 @@
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <?php if (isset($_SESSION['username'])) {?>>
+            <?php if (isset($_SESSION['username'])) {?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardropgame" data-toggle="dropdown">Game</a>
                     <div class="dropdown-menu">
