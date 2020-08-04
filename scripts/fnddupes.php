@@ -20,13 +20,9 @@ for ($x=0; $x < $totDupes-1; $x++) {
         echo $e->getMessage();
     }
 
-    echo "Deleting ". $x ." of ".$totDupes.". Record: ".$dupes[$x]['businessname']." Duplicates: ".$dupes[$x]['COUNT(businessname)']."<br>";
-    $curDupes = count($findDupe);
-
-    for ($y=1; $y > $curDupes-1; $y++) {
+    for ($y=1; $y < $dupes[$x]['COUNT(businessname']; $y++) {
         try {
             $delDupe = $conn->query('DELETE FROM businesses WHERE businessid = \''.$findDupe[$y]['businessid'].'\'')->execute();
-            echo $delDupe;
         } catch(PDOException $e) {
             echo $e->getMessage();
         }
