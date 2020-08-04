@@ -31,7 +31,7 @@ for ($x=0; $x < $totalBus; $x++) {
 for ($x=0; $x < $totalBus; $x++) {
     $naicsRand = rand(0,count($naics));
     $geoRand = rand(0,count($geo));
-    echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."Industry ID: ".$naicsRand." Geographic ID: ".$geoRand."...";
+    echo "Inserting: ".$x." of ".$totalBus.". Name: ".$busName[$x]."Industry ID: ".$naics[$naicsRand]." Geographic ID: ".$geo[$geoRand]."...";
     try {
         $insertBus = $conn->prepare('INSERT INTO businesses (businessname, industryid, location_id) VALUES (:bn, :iid, :lid)');
         $insertBot->execute(['bn' => $busName[$x], 'iid' => $naics[$naicsRand], 'lid' => $geo[$geoRand]]);
