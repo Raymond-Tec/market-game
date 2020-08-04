@@ -17,21 +17,22 @@ for ($x=0; $x < $totDupes-1; $x++) {
     try {
         $findDupe = $conn->prepare('SELECT * FROM businesses WHERE businessname = ?');
         $findDupe->execute([$dupes[$x]['businessname']]);
-        $foundDupe = $findDupe->fetchAll(PDO::FETCH_ASSOC);
+        
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
-    echo "Deleting ".$foundDupe[1]['businessname']." with ID: ".$foundDupe[1]['businessid']."<br>";
-
-/*
-    for ($y=1; $y < $dupes[$x]['COUNT(businessname']; $y++) {
-        echo "Deleting ".$foundDupe[$y]['businessname']." with ID: ".$foundDupe[$y]['businessid']."<br>";
-        try {
+    
+    $y = 0;
+    while ($foundDupe = $findDupe->fetch()) {
+        if ($y == 0) {
+            echo "First Record...Skipped.<br>";
+        } else {
+            echo "Deleting ".$foundDupe[$y]['businessname']." with ID: ".$foundDupe[$y]['businessid']."...";
             $delDupe = $conn->prepare('DELETE FROM businesses WHERE businessid = ?');
             $delDupe->execute([$foundDupe[$y]['businessid']]);
-        } catch(PDOException $e) {
-            echo $e->getMessage();
+            echo "Success.<br>";
         }
-    }*/
+        $y++;            
+    }
 }
 ?>
